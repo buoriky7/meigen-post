@@ -9,6 +9,57 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+<header>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        📮 名言-POST 📮
+      </a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarEexample3">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="発言者の名前 or 職業">
+        </div>
+        <button type="submit" class="btn btn-default">検索</button>
+      </form>
+
+
+    <% if user_signed_in? %>
+
+      <ul class="nav navbar-nav">
+
+        <li><%= link_to user_path(current_user.id) do %>
+           ようこそ <%= current_user.name %>さん のマイページ<% end %></li>
+        <li><a href="/words/new">📩名言を投稿する</a></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+
+    <% elsif %>
+
+      <ul class="nav navbar-nav">
+        <li><a href="/about">about</a></li>
+        <li><a href="/users/sign_in">ログイン</a></li>
+        <li><a href="/users/sign_up">新規会員登録</a></li>
+      </ul>
+    
+    <% end %>
+
+    </div>
+  </div>
+</nav>
+
+</header>
   <body>
     <%= yield %>
   </body>
