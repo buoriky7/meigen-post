@@ -1,0 +1,37 @@
+<main>
+
+<h1>Root#top</h1>
+<p>Find me in app/views/root/top.html.erb</p>
+
+<!-- 解説ページへのリンクと名言を引っ張ってくる予定 -->
+<div class="container">
+      <div class="row">
+      		<p>pick up 名言</p>
+      		<%= @words %>
+      </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+    	<p>ランキングを見る</p>
+    	<span><a href="/favorites/lank_all">総合部門</a></span>
+    	<span><a href="/favorites/lank_pro">著名人部門</a></span>
+    	<span><a href="/favorites/lank_ama">一般人部門</a></span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+    	<p>名言を見る</p>
+    	<span><a href="/words/index">全ての名言</a></span>
+    	<span><a href="words/index_pro">著名人の名言</a></span>
+    	<span><a href="words/index_ama">一般人の名言</a></span>
+    </div>
+</div>
+
+
+</main>
+
+
+
