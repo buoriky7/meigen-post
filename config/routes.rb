@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'root#top'
+  get 'about' => 'root#about'
   get 'favorites/lank_all'
   get 'favorites/lank_pro'
   get 'favorites/lank_ama'
