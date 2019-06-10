@@ -15,12 +15,18 @@ class WordsController < ApplicationController
   end
 
   def index
+    @words = Word.all
+
   end
 
   def index_pro
+    @words = Word.all
+
   end
 
   def index_ama
+    @words = Word.all
+
   end
 
   def show
