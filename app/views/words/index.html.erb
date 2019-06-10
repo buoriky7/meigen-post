@@ -1,2 +1,18 @@
 <h1>Words#index</h1>
 <p>Find me in app/views/words/index.html.erb</p>
+
+<% @words.each do |word| %>
+
+	<p><%= word.user.prefecture %>出身　<%= word.user.name %>さんの投稿</p>
+	<%= attachment_image_tag word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
+
+	<p>発言者：<%= word.speaker %>
+		<% if word.word_flag == "著名人" %>
+
+		      <a href="https://ja.wikipedia.org/wiki/<%= word.speaker %>">Wikipediaへ</a>
+		<% end %>
+</p>
+	<p>名言：<%= word.sp_word %></p>
+	<%= link_to "解説ページへ", word_path(word.id) %>
+<% end %>
+
