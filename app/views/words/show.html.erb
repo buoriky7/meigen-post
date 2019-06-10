@@ -1,3 +1,102 @@
 <h1>Words#show</h1>
 <p>Find me in app/views/words/show.html.erb</p>
-kjb
+
+
+<div>
+	<%= @word.user.prefecture%> 出身／
+	<%= @word.user.name %> さんの投稿
+</div>
+
+
+<div>
+	<%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
+</div>
+
+<div>
+	<p>名言：<%= @word.sp_word %></p>
+	<p>発言者：<%= @word.speaker %></p>
+	<p>職業：<%= @word.genre %></p>
+	<p>区分：<%= @word.word_flag %>
+					 <% if @word.word_flag == "著名人" %>
+					 <a href="https://ja.wikipedia.org/wiki/<%= @word.speaker %>">Wikipediaへ</a>
+					 <% end %></p>
+	<p>性別：<%= @word.speaker_gender %></p>
+	<p>解説：<%= @word.commentary %></p>
+
+</div>
+
+
+<!-- 他ユーザーいいね/自分は編集削除へのリンク -->
+
+<% if @word.user == current_user %>
+
+	<%= link_to "編集", edit_word_path(@word.id),class: "btn btn-outline-warning" %>
+
+	<%= link_to "削除", word_path(@word.id),class: "btn btn-outline-danger", method: :delete, "data-confirm" => "投稿を削除" %>
+
+
+<% else %>
+
+	<% if @word.favorited_by?(current_user) %>
+		<%= link_to word_favorites_path(@word.id), method: :delete do %>
+		<p>いいね中</p>
+		<% end %>
+	<% else %>
+		<%= link_to word_favorites_path(@word.id), method: :post do %>
+		<p>いいね</p>
+		<% end %>
+
+<% end %>
+
+
+
+
+<% end %>
+
+
+<!-- 共通リンク -->
+<%= link_to "戻る", :back %>
+
+
+<!-- いいねしてくたユーザー情報 -->
+
+<p>共感したユーザー</p>
+
+
+<div class="table">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ユーザーID</th>
+				<th>名前</th>
+				<th>出身</th>
+				<th>性別</th>
+				<th>マイページ</th>
+
+			</tr>
+		</thead>
+
+
+<% @favorite.each do |favorite| %>
+		<tbody>
+			<tr>
+				<th><%= favorite.user.id %></th>
+				<th><%= favorite.user.name %>さん</th>
+				<th><%= favorite.user.prefecture %></th>
+				<th><%= favorite.user.user_gender %></th>
+				<th><%= link_to "詳細", user_path(favorite.user.id) %></th>
+
+			</tr>
+		</tbody>
+
+
+<% end %>
+</div>
+
+
+
+
+
+
+
+

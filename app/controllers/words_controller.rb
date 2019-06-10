@@ -30,10 +30,20 @@ class WordsController < ApplicationController
   end
 
   def show
+    @word = Word.find(params[:id])
+    @favorite = @word.favorites
   end
 
   def edit
   end
+
+  def destroy
+    word = Word.find(params[:id])
+    word.destroy
+    redirect_to '/words'
+  end
+
+
 
     private
     def word_params
@@ -47,3 +57,7 @@ class WordsController < ApplicationController
     end
 
 end
+
+
+
+
