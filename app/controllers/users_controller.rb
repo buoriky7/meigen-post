@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @word = @user.words
+
+
+
   end
 
   def edit
@@ -17,7 +22,6 @@ class UsersController < ApplicationController
 
 
   private
-  
   def user_params
   	params.require(:user).permit(
   		:name,
