@@ -1,2 +1,23 @@
 <h1>Words#edit</h1>
 <p>Find me in app/views/words/edit.html.erb</p>
+
+
+<div>
+	<p>投稿日：<%= @word.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+	<p>名言：<%= @word.sp_word %></p>
+	<p>発言者：<%= @word.speaker %></p>
+	<p>職業：<%= @word.genre %></p>
+	<p>区分：<%= @word.word_flag %>
+	<p>性別：<%= @word.speaker_gender %></p>
+	<p>解説：<%= @word.commentary %></p>
+</div>
+
+<div>
+<%= form_for(@word) do |f| %>
+
+    <p>解説を編集</p>
+      <%= f.text_area :commentary %>
+      <%= f.submit '編集' %>
+<% end %>
+</div>
+

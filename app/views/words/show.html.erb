@@ -22,7 +22,6 @@
 					 <% end %></p>
 	<p>性別：<%= @word.speaker_gender %></p>
 	<p>解説：<%= @word.commentary %></p>
-
 </div>
 
 
@@ -30,7 +29,7 @@
 
 <% if @word.user == current_user %>
 
-	<%= link_to "編集", edit_word_path(@word.id),class: "btn btn-outline-warning" %>
+	<%= link_to "解説を編集", edit_word_path(@word.id),class: "btn btn-outline-warning" %>
 
 	<%= link_to "削除", word_path(@word.id),class: "btn btn-outline-danger", method: :delete, "data-confirm" => "投稿を削除" %>
 
@@ -60,7 +59,7 @@
 
 <!-- いいねしてくたユーザー情報 -->
 
-<p>共感したユーザー</p>
+<p>共感したユーザー達　合計<%= @favorite.count%>人</p>
 
 
 <div class="table">

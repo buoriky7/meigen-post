@@ -1,4 +1,7 @@
 class WordsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def new
     @word = Word.new
   end
@@ -35,6 +38,7 @@ class WordsController < ApplicationController
   end
 
   def edit
+    @word = Word.find(params[:id])
   end
 
   def destroy
@@ -43,9 +47,30 @@ class WordsController < ApplicationController
     redirect_to '/words'
   end
 
+  def update
+    @word = Word.find(params[:id])
+    if @word.update(word_params)
+       redirect_to word_path
+       flash[:notice] = "successfully"
+    else
+       render :edit
+    end
+  end
+
 
 
     private
+
+    def correct_user
+      word = Word.find(params[:id])
+      if current_user.id == word.user.id
+      else
+        redirect_back(fallback_location: root_path)
+      end
+    end
+
+
+
     def word_params
      params.require(:word).permit(:speaker,
                                   :genre,
