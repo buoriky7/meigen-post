@@ -1,6 +1,7 @@
 class RootController < ApplicationController
   def top
-  	@words = User.order("RAND()").limit(1)
+  	# @word = Word.find(rand(Word.all.count))
+  	# @word = User.group("name")
   end
 
   def about
