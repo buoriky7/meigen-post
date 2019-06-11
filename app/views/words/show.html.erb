@@ -4,7 +4,8 @@
 
 <div>
 	<%= @word.user.prefecture%> 出身／
-	<%= @word.user.name %> さんの投稿
+	<%= link_to @word.user.name, user_path(@word.user.id) %> さんの投稿
+
 </div>
 
 
@@ -22,6 +23,7 @@
 					 <% end %></p>
 	<p>性別：<%= @word.speaker_gender %></p>
 	<p>解説：<%= @word.commentary %></p>
+	<p>投稿日時：<%= @word.created_at.strftime('%Y/%m/%d') %></p>
 </div>
 
 
@@ -59,14 +61,14 @@
 
 <!-- いいねしてくたユーザー情報 -->
 
-<p>共感したユーザー達　合計<%= @favorite.count%>人</p>
+<p>いいねしたユーザー達　合計<%= @favorite.count %>人</p>
 
 
 <div class="table">
 	<table class="table">
 		<thead>
 			<tr>
-				<th>ユーザーID</th>
+				<th>No</th>
 				<th>名前</th>
 				<th>出身</th>
 				<th>性別</th>
@@ -76,10 +78,10 @@
 		</thead>
 
 
-<% @favorite.each do |favorite| %>
+<% @favorite.each_with_index do |favorite, i| %>
 		<tbody>
 			<tr>
-				<th><%= favorite.user.id %></th>
+				<th><%= i+1 %></th>
 				<th><%= favorite.user.name %>さん</th>
 				<th><%= favorite.user.prefecture %></th>
 				<th><%= favorite.user.user_gender %></th>
