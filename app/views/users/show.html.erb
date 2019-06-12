@@ -16,14 +16,16 @@
 
 <% if @user == current_user %>
 
+
+
 	<tr>
 
 		<th>E-mail：</th>
 		<td><%= @user.email %></td>
-<% end %>
+
 </table>
 
-<% if @user == current_user %>
+
 <div>
 	<span><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-outline-danger" %></span>
 	<span><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-outline-warning" %></span>

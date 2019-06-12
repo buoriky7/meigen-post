@@ -81,11 +81,11 @@
 <% @favorite.each_with_index do |favorite, i| %>
 		<tbody>
 			<tr>
-				<th><%= i+1 %></th>
-				<th><%= favorite.user.name %>さん</th>
-				<th><%= favorite.user.prefecture %></th>
-				<th><%= favorite.user.user_gender %></th>
-				<th><%= link_to "詳細", user_path(favorite.user.id) %></th>
+				<td><%= i+1 %></td>
+				<td><%= favorite.user.name %>さん</td>
+				<td><%= favorite.user.prefecture %></td>
+				<td><%= favorite.user.user_gender %></td>
+				<td><%= link_to "詳細", user_path(favorite.user.id) %></td>
 
 			</tr>
 		</tbody>

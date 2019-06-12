@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav">
 
         <li><%= link_to user_path(current_user.id) do %>
-           ようこそ <%= current_user.name %>さん のマイページ<% end %></li>
+           <%= current_user.name %>さん のマイページ<% end %></li>
         <li><a href="/words/new">📩名言を投稿する</a></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       </ul>
