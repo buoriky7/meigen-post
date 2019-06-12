@@ -8,7 +8,9 @@
       <div class="row">
       		<p>pick up 名言</p>
 
-
+            <%= @word.speaker %>より
+            <%= @word.sp_word %>
+            <%= link_to "解説ページへ", word_path(@word.id) %>
 
       </div>
 </div>
@@ -27,12 +29,14 @@
     <div class="row">
     	<p>名言を見る</p>
     	<span><a href="/words">全ての名言</a></span>
-    	<span><a href="words/index_pro">著名人の名言</a></span>
-    	<span><a href="words/index_ama">一般人の名言</a></span>
+    	<span><a href="/words/index_pro">著名人の名言</a></span>
+    	<span><a href="/words/index_ama">一般人の名言</a></span>
     </div>
 </div>
 
-
+<div>
+<a href="/users">ユーザー一覧</a>
+</div>
 </main>
 
 
