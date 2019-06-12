@@ -12,4 +12,10 @@ class Word < ApplicationRecord
 	validates :word_flag, presence: true
 	validates :genre, presence: true, length: { in: 1..10 }
 
+	def self.favorite_ids
+		[ 1,6 ]
+
+	end
+
+
 end
