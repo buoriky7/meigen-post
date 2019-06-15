@@ -1,6 +1,20 @@
+
+<div>
+
+
+<form>
+    	<%= search_form_for @search, url: words_path, :class=>"navbar-form navbar-left" do |f| %>
+       <label><%= f.radio_button :word_flag_cont, "" %> 全て</label>
+       <label><%= f.radio_button :word_flag_cont, "著名人" %> 著名人</label>
+       <label><%= f.radio_button :word_flag_cont, "一般人" %> 一般人</label>
+	　 <button type="submit" class="btn btn-default">切り替え</button>
+<% end %>
+</form>
+
 <h1>Words#index</h1>
 <p>Find me in app/views/words/index.html.erb</p>
 
+<div>
 <% @search_words.each do |word| %>
 
 	<p><%= word.user.prefecture %>出身　<%= word.user.name %>さんの投稿</p>
@@ -16,3 +30,4 @@
 	<%= link_to "解説ページへ", word_path(word.id) %>
 <% end %>
 
+</div>
