@@ -1,5 +1,8 @@
 class FavoritesController < ApplicationController
   def index
+    @user = current_user
+    @favorite = @user.favorites
+  
   end
 
   def lank_all
