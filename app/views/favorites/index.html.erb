@@ -17,21 +17,18 @@
 
 
 	  <% @favorite.each_with_index do |favorite, i| %>
-	  <tbody>
-		<tr>
-			<td><%= i+1 %></td>
-			<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'80x80' %></th>
-			<td><%= favorite.word.speaker %></td>
-			<td><%= favorite.word.genre %></td>
-			<td><%= favorite.word.sp_word %></td>
-			<td><%= link_to "解説ページへ", word_path(favorite.word.id) %></td>
-			<td>
-
-				<%= link_to "お気に入りから削除", word_favorites_path(favorite.word), method: :delete %>
-
-		</td>
-      </tr>
-      <% end %> 
+		  <tbody>
+			<tr>
+				<td><%= i+1 %></td>
+				<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'80x80' %></th>
+				<td><%= favorite.word.speaker %></td>
+				<td><%= favorite.word.genre %></td>
+				<td><%= favorite.word.sp_word %></td>
+				<td><%= link_to "解説ページへ", word_path(favorite.word.id) %></td>
+				<td><%= link_to "お気に入りから削除", word_favorites_path(favorite.word), method: :delete %></td>
+	        </tr>
+	      </tbody>
+	  <% end %>
 
 
 </main>

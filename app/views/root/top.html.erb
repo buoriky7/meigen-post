@@ -1,40 +1,33 @@
 <main>
-
-<h1>Root#top</h1>
-<p>Find me in app/views/root/top.html.erb</p>
-
-<!-- 解説ページへのリンクと名言を引っ張ってくる予定 -->
-<div class="container">
-      <div class="row">
-      		<p>pick up 名言</p>
-
-            <%= @word.speaker %>より
-            <%= @word.sp_word %>
-            <%= link_to "解説ページへ", word_path(@word.id) %>
-
-      </div>
-</div>
-
-
-<div class="container">
-    <div class="row">
-    	<p>ランキングを見る</p>
-    	<span><a href="/favorites/lank_all">総合部門</a></span>
-    	<span><a href="/favorites/lank_pro">著名人部門</a></span>
-    	<span><a href="/favorites/lank_ama">一般人部門</a></span>
+    <div>
+    	<h4 class="pickup_title">【PICK UP名言】</h4>
+        <p class="pickup_user"><%= @word.user.name %>さんの投稿</p>
+        <div class="pickup_image"><%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %></div>
+        <p><%= @word.speaker %>の名言</p>
+        <p><%= @word.sp_word %></p>
+        <p><%= link_to "解説ページへ", word_path(@word.id) %></p>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-    	<span><a href="/words">名言を見る</a></span>
 
+    <div class="container">
+        <div class="row">
+        	<p>ランキングを見る</p>
+        	<span><a href="/favorites/lank_all">総合部門</a></span>
+        	<span><a href="/favorites/lank_pro">著名人部門</a></span>
+        	<span><a href="/favorites/lank_ama">一般人部門</a></span>
+        </div>
     </div>
-</div>
 
-<div>
-<a href="/users">ユーザー一覧</a>
-</div>
+    <div class="container">
+        <div class="row">
+        	<p><a href="/words">名言の一覧ページ</a></p>
+
+        </div>
+    </div>
+
+    <div>
+        <p><a href="/users">登録ユーザー一覧</a></p>
+    </div>
 </main>
 
 

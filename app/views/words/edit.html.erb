@@ -8,16 +8,15 @@
 	<p>発言者：<%= @word.speaker %></p>
 	<p>職業：<%= @word.genre %></p>
 	<p>区分：<%= @word.word_flag %>
-	<p>性別：<%= @word.speaker_gender %></p>
-	<p>解説：<%= @word.commentary %></p>
+		<p>性別：<%= @word.speaker_gender %></p>
+		<p>解説：<%= @word.commentary %></p>
 </div>
 
 <div>
-<%= form_for(@word) do |f| %>
-
-    <p>解説を編集</p>
-      <%= f.text_area :commentary %>
-      <%= f.submit '編集' %>
-<% end %>
+	<p>解説を編集</p>
+	<%= form_for(@word) do |f| %>
+	<%= f.text_area :commentary %>
+	<%= f.submit '編集' %>
+	<% end %>
 </div>
 
