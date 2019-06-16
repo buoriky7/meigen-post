@@ -1,40 +1,24 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+<div>
+	<p>名前：<%= @user.name %></p>
+	<p>性別：<%= @user.user_gender %></p>
+	<p>出身：<%= @user.prefecture %></p>
 
-<table>
-	<tr>
-		<th>名前：</th>
-		<td><%= @user.name %></td>
-	</tr>
-	<tr>
-		<th>性別：</th>
-		<td><%= @user.user_gender %></td>
-	<tr>
-		<th>出身：</th>
-		<td><%= @user.prefecture %></td>
+	<% if @user == current_user %>
+		<p>E-mail：<%= @user.email %></p>
+		<span><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-outline-danger" %></span>
+		<span><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-outline-warning" %></span>
+		<span><%= link_to "退会", "/users/delete_confirmation", class: "btn btn-outline-danger" %></span>
+	<% end %>
+</div>
 
-<% if @user == current_user %>
-
-
-
-	<tr>
-
-		<th>E-mail：</th>
-		<td><%= @user.email %></td>
-
-</table>
 
 
 <div>
-	<span><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-outline-danger" %></span>
-	<span><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-outline-warning" %></span>
-	<span><%= link_to "退会", "/users/delete_confirmation", class: "btn btn-outline-danger" %></span>
+	<p>投稿一覧</p>
 </div>
-
-<% end %>
-
-
 
 <div class="table">
 	<table class="table">
@@ -52,26 +36,22 @@
 			</tr>
 		</thead>
 
-<p>投稿一覧</p>
 
-
-<% @word.each_with_index do |word, i| %>
-		<tbody>
-			<tr>
-				<th><%= i+1 %></th>
-				<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'100x100' %></th>
-				<th><%= word.speaker %></th>
-				<th><%= word.sp_word %></th>
-				<th><%= word.genre %></th>
-				<th><%= word.word_flag %></th>
-				<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
-				<th><%= word.favorites.count %> 件</th>
-				<th><%= link_to "解説へ", word_path(word.id) %></th>
-			</tr>
-		</tbody>
-
-
-<% end %>
+		<% @word.each_with_index do |word, i| %>
+			<tbody>
+				<tr>
+					<th><%= i+1 %></th>
+					<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'100x100' %></th>
+					<th><%= word.speaker %></th>
+					<th><%= word.sp_word %></th>
+					<th><%= word.genre %></th>
+					<th><%= word.word_flag %></th>
+					<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
+					<th><%= word.favorites.count %> 件</th>
+					<th><%= link_to "解説へ", word_path(word.id) %></th>
+				</tr>
+			</tbody>
+		<% end %>
 </div>
 
 

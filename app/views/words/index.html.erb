@@ -1,33 +1,33 @@
 
 <div>
 
+	<div>
+		<form>
+			<%= search_form_for @search, url: words_path, :class=>"navbar-form navbar-left" do |f| %>
+				<label><%= f.radio_button :word_flag_cont, "" %> 全て</label>
+				<label><%= f.radio_button :word_flag_cont, "著名人" %> 著名人</label>
+				<label><%= f.radio_button :word_flag_cont, "一般人" %> 一般人</label>
+				<button type="submit" class="btn btn-default">切り替え</button>
+			<% end %>
+		</form>
+	</div>
 
-<form>
-    	<%= search_form_for @search, url: words_path, :class=>"navbar-form navbar-left" do |f| %>
-       <label><%= f.radio_button :word_flag_cont, "" %> 全て</label>
-       <label><%= f.radio_button :word_flag_cont, "著名人" %> 著名人</label>
-       <label><%= f.radio_button :word_flag_cont, "一般人" %> 一般人</label>
-	　 <button type="submit" class="btn btn-default">切り替え</button>
-<% end %>
-</form>
+	<div>
+		<% @search_words.each do |word| %>
 
-<h1>Words#index</h1>
-<p>Find me in app/views/words/index.html.erb</p>
+			<p><%= word.user.prefecture %>出身　<%= word.user.name %>さんの投稿</p>
+			<%= attachment_image_tag word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
 
-<div>
-<% @search_words.each do |word| %>
+			<p>
+			  発言者：<%= word.speaker %>
+				<% if word.word_flag == "著名人" %>
+				  <a href="https://ja.wikipedia.org/wiki/<%= word.speaker %>">Wikipediaへ</a>
+				<% end %>
+			</p>
 
-	<p><%= word.user.prefecture %>出身　<%= word.user.name %>さんの投稿</p>
-	<%= attachment_image_tag word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
-
-	<p>発言者：<%= word.speaker %>
-		<% if word.word_flag == "著名人" %>
-
-		      <a href="https://ja.wikipedia.org/wiki/<%= word.speaker %>">Wikipediaへ</a>
+			<p>名言：<%= word.sp_word %></p>
+			<button><%= link_to "解説ページへ", word_path(word.id) %></button>
 		<% end %>
-</p>
-	<p>名言：<%= word.sp_word %></p>
-	<%= link_to "解説ページへ", word_path(word.id) %>
-<% end %>
 
+	</div>
 </div>
