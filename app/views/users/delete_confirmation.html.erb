@@ -1,2 +1,15 @@
-<h1>Users#delete_confirmation</h1>
-<p>Find me in app/views/users/delete_confirmation.html.erb</p>
+
+<h1>退会確認</h1>
+<h5>退会手続きをされますと全てのサービスが<br>
+	ご利用頂けなくなります。再度ご利用頂くには、<br>
+	新規登録が必要となります。<br>
+	本当に退会してよろしいですか？
+</h5>
+
+<div class="delete_confirm_link">
+	<%= link_to "戻る", :back %>
+</div>
+
+<div class="delete_confirm_link">
+	<%= link_to "退会する", user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+</div>
