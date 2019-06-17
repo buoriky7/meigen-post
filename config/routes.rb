@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'root#top'
   get 'about' => 'root#about'
-  get 'favorites/lank_all'
-  get 'favorites/lank_pro'
-  get 'favorites/lank_ama'
+  get 'favorites/rank_all'
+  get 'favorites/rank_pro'
+  get 'favorites/rank_ama'
   get 'users/delete_confirmation'
   get 'words/index_pro'
   get 'words/index_ama'

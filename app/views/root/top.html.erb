@@ -1,33 +1,45 @@
+
 <main>
-    <div>
-    	<h4 class="pickup_title">【PICK UP名言】</h4>
-        <p class="pickup_user"><%= @word.user.name %>さんの投稿</p>
-        <div class="pickup_image"><%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %></div>
-        <p><%= @word.speaker %>の名言</p>
-        <p><%= @word.sp_word %></p>
-        <p><%= link_to "解説ページへ", word_path(@word.id) %></p>
-    </div>
-
-
     <div class="container">
         <div class="row">
-        	<p>ランキングを見る</p>
-        	<span><a href="/favorites/lank_all">総合部門</a></span>
-        	<span><a href="/favorites/lank_pro">著名人部門</a></span>
-        	<span><a href="/favorites/lank_ama">一般人部門</a></span>
+
+            <div class="guide">
+                名言で溢れてます。
+            </div>
+
+            <div class="picup">
+                <h4 class="pickup_title">【PICK UP名言】</h4>
+            </div>
+            <div class="pickup_image"><%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
+
+                <span class="balloon1-left"><%= @word.sp_word %></span>
+                <p>
+                <%= link_to "解説ページへ", word_path(@word.id) %>
+            </p>
+            </div>
+            </div>
+        </div>
+
+
+
+                <div class="rank">
+                    <p>ランキングを見る</p>
+                    <span><a href="/favorites/rank_all">総合部門</a></span>
+                    <span><a href="/favorites/rank_pro">著名人部門</a></span>
+                    <span><a href="/favorites/rank_ama">一般人部門</a></span>
+                </div>
+
+
+            <p><a href="/words">名言の一覧ページ</a></p>
+
+
+
+            <div>
+                <p><a href="/users">登録ユーザー一覧</a></p>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-        	<p><a href="/words">名言の一覧ページ</a></p>
-
-        </div>
-    </div>
-
-    <div>
-        <p><a href="/users">登録ユーザー一覧</a></p>
-    </div>
 </main>
 
 

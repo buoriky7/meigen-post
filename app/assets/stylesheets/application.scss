@@ -25,35 +25,26 @@
 a{
 	color: black;
 }
-.balloon1-left {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
-  padding: 7px 10px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #e0edff;
-}
 
-.balloon1-left:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  margin-top: -15px;
-  border: 15px solid transparent;
-  border-right: 15px solid #e0edff;
+.guide{
+  width: 50%;
+  background-color: blue;
+  height: 100px;
+  background-position: center;
+  text-align: center;
+  margin: 0 auto;
 }
-
-.balloon1-left p {
-  margin: 0;
-  padding: 0;
+.picup{
+  width: 50%;
+  background-color: blue;
+  height: 100px;
+  background-position: center;
+  text-align: center;
+  margin: 0 auto;
 }
-
+.pickup_title{
+}
 .pickup_image{
-	float: left;
-	margin-left: 40px;
-}
+  text-align: center;
 
+}
