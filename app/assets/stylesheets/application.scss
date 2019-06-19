@@ -162,7 +162,6 @@ footer{
 }
 
 
-
 /*見出しメニュー*/
 .menu {
   background: rgba(123, 68, 29, 0);
@@ -234,3 +233,47 @@ footer{
   margin:30px 0 20px 46%;
 }
 
+/*名言一覧*/
+.index-switching{
+  margin-left: 40%;
+  margin-bottom: 40px;
+}
+
+.sp-word {
+  display: inline-block;
+  position: relative;
+  border-top: 1px solid rgb(121, 85, 72);
+  border-bottom: 1px solid rgb(121, 85, 72);
+  padding: .8em 1.2em;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.sp-word::before,
+.sp-word::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 14px);
+  background-color: rgb(121, 85, 72);
+}
+.sp-word::before {
+  left: 5px;
+}
+.sp-word::after {
+  right: 5px;
+}
+
+
+.word-user {
+  background: rgb(255, 255, 255);
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(255, 152, 0);
+  text-align: left;
+  margin-left: 30%;
+  margin-top: 20px;
+}

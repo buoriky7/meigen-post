@@ -19,21 +19,19 @@
             <div class="menu"> PICK UP 名言 </div>
 
             <div class="pickup-word">
+
                 <figure class="pickup-word-img">
                     <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: 'noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
-                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b>
+                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>
                     </figcaption>
 
                 </figure>
                 <div class="pickup-word-content">
-                    <p><%= link_to @word.sp_word, word_path(@word.id) %></p>
+                    <p><%= simple_format(@word.sp_word) %></p>
                 </div>
             </div>
             <div style="  margin-left: 60%;">
-                <button type="button" class="btn btn-default">
-                    <%= link_to "解説", word_path(@word.id) %>
-
-                </button>
+                <%= link_to "解説", word_path(@word.id), class: 'btn btn-default', role: 'button' %>
              </div>
 
             <div class="menu">メニュー</div>
