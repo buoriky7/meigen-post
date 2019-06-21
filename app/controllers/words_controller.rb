@@ -44,7 +44,7 @@ class WordsController < ApplicationController
   def destroy
     word = Word.find(params[:id])
     word.destroy
-    redirect_to '/words'
+    redirect_to user_path(word.user.id)
   end
 
   def update

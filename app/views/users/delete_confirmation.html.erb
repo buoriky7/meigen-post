@@ -1,15 +1,20 @@
 
-<h1>退会確認</h1>
-<h5>退会手続きをされますと全てのサービスが<br>
-	ご利用頂けなくなります。再度ご利用頂くには、<br>
-	新規登録が必要となります。<br>
-	本当に退会してよろしいですか？
-</h5>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head">退会確認
+			</div>
+			<h4 style="text-align: center;">
+				退会手続きをされますと<br>
+				データはすべて消去されます。<br>
+				本当に退会してよろしいですか？
+			</h4>
 
-<div class="delete_confirm_link">
-	<%= link_to "戻る", :back %>
-</div>
+			<div style="margin:40px 0 35% 42%">
+				<%= link_to "退会する", user_path(current_user.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "本当に退会しますか？" %>
 
-<div class="delete_confirm_link">
-	<%= link_to "退会する", user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？" %>
-</div>
+				<%= link_to "戻る", :back, class: "btn btn-default active" %>
+			</div>
+		</div>
+	</div>
+</main>

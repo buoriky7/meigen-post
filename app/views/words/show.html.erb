@@ -1,94 +1,110 @@
-<h1>Words#show</h1>
-<p>Find me in app/views/words/show.html.erb</p>
+<main>
+	<div class="container">
+		<div class="row">
+
+			<div class="menu-head"><%= @word.user.prefecture%> 出身／
+				<%= @word.user.name %> さんの投稿
+			</div>
+
+			<div class="word-show-image">
+				<%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
+				<p class="word-show-speaker"><br><b>( <%= @word.speaker %> )</b></p>
+				<% if @word.word_flag == "著名人" %>
+				<a href="https://ja.wikipedia.org/wiki/<%= @word.speaker %> "class="btn btn-success active">Wikipediaへ</a>
+				<% end %></p>
+			</div>
+
+			<div class="sp-word-show">
+				<p><b><%= simple_format(@word.sp_word) %></b></p>
+			</div>
+
+			<div class="sp-word-show-box">
+				<div class="word-show-commentary">
+					<div class="word-show-commentary-title">解説
+					</div>
+					<p><%= simple_format(@word.commentary) %><br></p>
+
+					<p class="tips">
+						<%= @word.speaker %><br>
+						【 <%= @word.genre %> /
+						<%= @word.speaker_gender %> /
+						（<%= @word.word_flag %>）】
+					</p>
+				</div>
+
+			</div>
 
 
-<div>
-	<p>
-		<%= @word.user.prefecture%> 出身／
-		<%= link_to @word.user.name, user_path(@word.user.id) %> さんの投稿
-	</p>
-</div>
-
-
-<div>
-	<%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
-</div>
 
 
 
-<div>
-	<p>名言：<%= @word.sp_word %></p>
-	<p>発言者：<%= @word.speaker %></p>
-	<p>職業：<%= @word.genre %></p>
-	<p>区分：<%= @word.word_flag %>
-		<% if @word.word_flag == "著名人" %>
-			<a href="https://ja.wikipedia.org/wiki/<%= @word.speaker %>">Wikipediaへ</a>
-		<% end %></p>
-	<p>性別：<%= @word.speaker_gender %></p>
-	<p>解説：<%= @word.commentary %></p>
-	<p>投稿日時：<%= @word.created_at.strftime('%Y/%m/%d') %></p>
-</div>
+			<!-- 他ユーザーいいね/自分は編集削除へのリンク -->
+			<div style="margin : 5px 0 30px 32%;">
+				<% if user_signed_in? %>
+				<% if @word.user == current_user %>
+				<span class="word-show-menu">
+					<%= link_to "解説を編集", edit_word_path(@word.id),class: "btn btn-warning active" %>
+				</span>
+				<span class="word-show-menu">
+					<%= link_to "削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を投稿を削除" %>
+				</span>
+
+				<% else %>
+
+				<span class="word-show-menu">
+					<% if @word.favorited_by?(current_user) %>
+					<%= link_to word_favorites_path(@word.id), class: "btn btn-danger active", method: :delete do %>
+					ー お気に入りリスト 外す
+					<% end %>
+					<% else %>
+					<%= link_to word_favorites_path(@word.id), class: "btn btn-default active", method: :post do %>
+					＋ お気に入りリスト 追加
+					<% end %>
+					<% end %>
+					<span class="word-show-menu">
+						<%= link_to "投稿者のマイページ" , user_path(@word.user.id)  ,class: "btn btn-info active" %>
+					</span>
+				</span>
+				<% end %>
+				<% end %>
+			</div>
 
 
+			<!-- いいねしてくたユーザー情報 -->
+			<div class="fav-user">
+				<p>　合計<%= @favorite.count %>人　お気に入り</p>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>名前</th>
+							<th>出身</th>
+							<th>性別</th>
+							<th></th>
+
+						</tr>
+					</thead>
 
 
-	<!-- 他ユーザーいいね/自分は編集削除へのリンク -->
-
-<% if @word.user == current_user %>
-  <%= link_to "解説を編集", edit_word_path(@word.id),class: "btn btn-outline-warning" %>
-  <%= link_to "削除", word_path(@word.id),class: "btn btn-outline-danger", method: :delete, "data-confirm" => "投稿を投稿を削除" %>
-<% else %>
-
-<% if @word.favorited_by?(current_user) %>
-  <%= link_to word_favorites_path(@word.id), method: :delete do %>
-	<p>いいね中</p>
-  <% end %>
-	<% else %>
-	  <%= link_to word_favorites_path(@word.id), method: :post do %>
-		<p>いいね</p>
-	  <% end %>
-
-	<% end %>
-<% end %>
-
-
-	<!-- 共通リンク -->
-	<button type=""><%= link_to "戻る", :back %></button>
-
-
-	<!-- いいねしてくたユーザー情報 -->
-	<div>
-		<p>いいねしたユーザー達　合計<%= @favorite.count %>人</p>
+					<% @favorite.each_with_index do |favorite, i| %>
+					<tbody>
+						<tr>
+							<td><%= i+1 %></td>
+							<td><%= favorite.user.name %>さん</td>
+							<td><%= favorite.user.prefecture %></td>
+							<td><%= favorite.user.user_gender %></td>
+							<td><%= link_to "詳細", user_path(favorite.user.id) ,class: "btn btn-default active" %></td>
+						</tr>
+					</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
 	</div>
-
-	<div class="table">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>名前</th>
-					<th>出身</th>
-					<th>性別</th>
-					<th>マイページ</th>
-
-				</tr>
-			</thead>
-
-
-			<% @favorite.each_with_index do |favorite, i| %>
-				<tbody>
-					<tr>
-						<td><%= i+1 %></td>
-						<td><%= favorite.user.name %>さん</td>
-						<td><%= favorite.user.prefecture %></td>
-						<td><%= favorite.user.user_gender %></td>
-						<td><%= link_to "詳細", user_path(favorite.user.id) %></td>
-					</tr>
-				</tbody>
-			<% end %>
-		</table>
-	</div>
-
+</main>
 
 
 

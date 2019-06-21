@@ -1,17 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="menu-head">登録情報の編集
+      </div>
 
+      <div class="user-edit">
+        <%= form_for(@user) do |f| %>
 
-<%= form_for(@user) do |f| %>
-
-    <h4>名前</h4>
-      <%= f.text_field :name %>
-    <h4>出身</h4>
-      <%= f.text_field :prefecture %>
-    <h4>email</h4>
-      <%= f.text_field :email %>
-	<div>
-	    <%= f.submit '更新' %>
-	</div>
-
-<% end %>
+        <h4>名前</h4>
+        <%= f.text_field :name %>
+        <h4>出身</h4>
+        <%= f.text_field :prefecture %>
+        <h4>E-mail</h4>
+        <%= f.text_field :email %>
+        <p style ="margin-top: 20px;">
+          <%= f.submit '更新', class: "btn btn-primary active" %>
+        </p>
+        <% end %>
+      </div>
+      <div class="user-edit">
+        <p><%= link_to "ー　退会確認画面へ　ー", "/users/delete_confirmation" %></p>
+      </div>
+    </div>
+  </div>
+</main>

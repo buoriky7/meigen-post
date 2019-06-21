@@ -22,7 +22,7 @@
 
                 <figure class="pickup-word-img">
                     <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: 'noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
-                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>
+                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>(<%= @word.genre %>)
                     </figcaption>
 
                 </figure>
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div style="  margin-left: 60%;">
-                <%= link_to "解説", word_path(@word.id), class: 'btn btn-default', role: 'button' %>
+                <%= link_to "解説", word_path(@word.id) ,class: "btn btn-default active" %>
              </div>
 
             <div class="menu">メニュー</div>

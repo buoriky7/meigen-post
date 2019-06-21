@@ -6,9 +6,9 @@ class Word < ApplicationRecord
     end
 
 	attachment :image
-	validates :speaker, presence: true, length: { in: 1..30 }
+	validates :speaker, presence: true, length: { in: 1..15 }
 	validates :speaker_gender, presence: true
-	validates :sp_word, presence: true, length: { in: 3..100 }
+	validates :sp_word, presence: true, length: { in: 3..50 }
 	validates :word_flag, presence: true
 	validates :genre, presence: true, length: { in: 1..10 }
 

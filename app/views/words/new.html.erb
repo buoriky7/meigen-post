@@ -1,7 +1,8 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="menu-head">新規投稿</div>
+            <div class="menu-head">新規投稿
+            </div>
 
 
             <div class="word-new">
@@ -11,34 +12,29 @@
 
                 <div class="form">
                     <p class="form-head">名言</p>
-                    <%= f.text_area :sp_word %>
+                    <%= f.text_area :sp_word, placeholder:"〜50文字", class: "word-new-form-2" %>
                 </div>
-
-                
-
-
 
                 <div class="form">
                     <p class="form-head">発言者</p>
-                    <%= f.text_field :speaker %>
+                    <%= f.text_field :speaker, placeholder:"〜15文字", class: "word-new-form-1" %>
                 </div>
 
 
                 <div class="form">
                     <p class="form-head">名言の解説</p>
-                    <%= f.text_area :commentary %>
+                    <%= f.text_area :commentary, class: "word-new-form-2" %>
                 </div>
                 <div class="form">
                     <p class="form-head">イメージ</p>
                     <div style="margin-left: 45%;">
-                    <%= f.attachment_field :image %></div>
+                        <%= f.attachment_field :image %></div>
+                    </div>
                 </div>
-
-
 
                 <div class="form">
                     <p class="form-head">職業／ジャンル</p>
-                    <%= f.text_field :genre %>
+                    <%= f.text_field :genre, placeholder:"〜10文字", class: "word-new-form-1" %>
                 </div>
 
 
@@ -48,24 +44,20 @@
                     <label><%= f.radio_button :word_flag, "一般人" %> 一般人</label>
                 </div>
 
-
-
-
-
                 <div class="form">
                     <p class="form-head">発言者の性別</p>
                     <label><%= f.radio_button :speaker_gender, "男性" %> 男性</label>
                     <label><%= f.radio_button :speaker_gender, "女性" %> 女性</label>
                     <label><%= f.radio_button :speaker_gender, "その他" %> その他</label>
                 </div>
+                <div style="text-align: center;">
+                  <%= f.submit "新規投稿", class: "btn btn-success active"  %>
+              </div>
 
-                <div class="submit">
-
-                <%= f.submit '     新規投稿     ' %>
-               </div>
-            <% end %>
-        </div>
-    </div>
-</div>
+              <% end %>
+          </div>
+      </div>
+  </div>
 </main>
+
 
