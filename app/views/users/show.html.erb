@@ -1,59 +1,74 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head"><%= @user.name %>さん のマイページ
+			</div>
+			<div class="mypage">
+				<div class="mypage-title">　 information　 </div>
+				<p class="mypage-show">名前　：<%= @user.name %></p>
+				<p class="mypage-show">性別　：<%= @user.user_gender %></p>
+				<p class="mypage-show">出身　：<%= @user.prefecture %></p>
 
-<div>
-	<p>名前：<%= @user.name %></p>
-	<p>性別：<%= @user.user_gender %></p>
-	<p>出身：<%= @user.prefecture %></p>
+				<% if @user == current_user %>
+				<p class="mypage-show">E-mail：<%= @user.email %></p>
+				<% end %>
+			</div>
+			<div style="margin : 30px 0 30px 35%;">
+				<% if @user == current_user %>
+				<span class="word-show-menu"><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-primary active" %></span>
+				<span class="word-show-menu"><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-warning active" %></span>
 
-	<% if @user == current_user %>
-		<p>E-mail：<%= @user.email %></p>
-		<span><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-outline-danger" %></span>
-		<span><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-outline-warning" %></span>
-		<span><%= link_to "退会", "/users/delete_confirmation", class: "btn btn-outline-danger" %></span>
-	<% end %>
-</div>
+				<% end %>
+			</div>
 
-
-
-<div>
-	<p>投稿一覧</p>
-</div>
-
-<div class="table">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>イメージ</th>
-				<th>発言者</th>
-				<th>名言</th>
-				<th>職業／ジャンル</th>
-				<th>著名／一般人</th>
-				<th>投稿日時</th>
-				<th>いいね数</th>
-				<th></th>
-			</tr>
-		</thead>
+			<div class="fav-user">
+				<p>　投稿一覧　合計<%= @word.count %>件</p>
+			</div>
 
 
-		<% @word.each_with_index do |word, i| %>
-			<tbody>
-				<tr>
-					<th><%= i+1 %></th>
-					<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'100x100' %></th>
-					<th><%= word.speaker %></th>
-					<th><%= word.sp_word %></th>
-					<th><%= word.genre %></th>
-					<th><%= word.word_flag %></th>
-					<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
-					<th><%= word.favorites.count %> 件</th>
-					<th><%= link_to "解説へ", word_path(word.id) %></th>
-				</tr>
-			</tbody>
-		<% end %>
-</div>
 
+			<div class="table">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>イメージ</th>
+							<th>名言</th>
+							<th>発言者</th>
+							<th>職業／ジャンル</th>
+							<th>投稿日時</th>
+							<th>point</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+
+
+					<% @word.each_with_index do |word, i| %>
+					<tbody>
+						<tr>
+							<th><%= i+1 %></th>
+							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
+							<th><%= word.sp_word %></th>
+							<th><%= word.speaker %></th>
+							<th><%= word.genre %></th>
+							<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
+							<th><%= word.favorites.count %> 件</th>
+							<th><%= link_to "解説", word_path(word.id), class: "btn btn-default active " %></th>
+							<% if user_signed_in? %>
+							<% if word.user == current_user %>
+							<th><%= link_to "削除", word_path(word.id), class: "btn btn-danger active ", method: :delete, "data-confirm" => "投稿を削除" %>
+								<% end %>
+								<% end %>
+							</th>
+						</tr>
+					</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>
 
 
 

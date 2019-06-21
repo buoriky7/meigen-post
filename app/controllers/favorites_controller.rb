@@ -7,19 +7,19 @@ class FavoritesController < ApplicationController
 
   # ↓参考：https://qiita.com/tomoharutsutsumi/items/488beb4983b12484bbb6
 
-  def lank_all
+  def rank_all
     word_favorite_count = Word.joins(:favorites).where(created_at: 1.months.ago..Time.now).group(:word_id).count
     word_favorited_ids = Hash[word_favorite_count.sort_by{ |_, v| -v }].keys
     @word_ranking = Word.where(id: word_favorited_ids).sort_by{|o| word_favorited_ids.index(o.id)}[0..9]
   end
 
-  def lank_pro
+  def rank_pro
     word_favorite_count = Word.joins(:favorites).where(word_flag: "著名人", created_at: 1.months.ago..Time.now).group(:word_id).count
     word_favorited_ids = Hash[word_favorite_count.sort_by{ |_, v| -v }].keys
     @word_ranking = Word.where(id: word_favorited_ids).sort_by{|o| word_favorited_ids.index(o.id)}[0..9]
   end
 
-  def lank_ama
+  def rank_ama
       word_favorite_count = Word.joins(:favorites).where(word_flag: "一般人", created_at: 1.months.ago..Time.now).group(:word_id).count
       word_favorited_ids = Hash[word_favorite_count.sort_by{ |_, v| -v }].keys
       @word_ranking = Word.where(id: word_favorited_ids).sort_by{|o| word_favorited_ids.index(o.id)}[0..9]

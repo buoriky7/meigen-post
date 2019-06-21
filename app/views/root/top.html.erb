@@ -1,33 +1,50 @@
+
 <main>
-    <div>
-    	<h4 class="pickup_title">【PICK UP名言】</h4>
-        <p class="pickup_user"><%= @word.user.name %>さんの投稿</p>
-        <div class="pickup_image"><%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %></div>
-        <p><%= @word.speaker %>の名言</p>
-        <p><%= @word.sp_word %></p>
-        <p><%= link_to "解説ページへ", word_path(@word.id) %></p>
-    </div>
-
-
     <div class="container">
         <div class="row">
-        	<p>ランキングを見る</p>
-        	<span><a href="/favorites/lank_all">総合部門</a></span>
-        	<span><a href="/favorites/lank_pro">著名人部門</a></span>
-        	<span><a href="/favorites/lank_ama">一般人部門</a></span>
+
+            <div class="top-guide">
+                <div class="wrapper">
+
+                    <div class="caption">現在の名言は<%= number_with_delimiter(@words.count) %>件
+                    </div>
+                    <div class="heading"><b>名言 - POST</b>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="menu"> PICK UP 名言 </div>
+
+            <div class="pickup-word">
+
+                <figure class="pickup-word-img">
+                    <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: 'noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
+                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>(<%= @word.genre %>)
+                    </figcaption>
+
+                </figure>
+                <div class="pickup-word-content">
+                    <p><%= simple_format(@word.sp_word) %></p>
+                </div>
+            </div>
+            <div style="  margin-left: 60%;">
+                <%= link_to "解説", word_path(@word.id) ,class: "btn btn-default active" %>
+             </div>
+
+            <div class="menu">メニュー</div>
+
+            <a class="top-link" href="/words/new" >📩 名言を投稿 📩</a>
+            <a class="top-link" href="/words" >👓 名言の一覧 👓</a>
+            <a class="top-link" href="/favorites/rank_all" > 👑 ランキング 👑</a>
+            <a class="top-link" href="/users" > 👨‍👩‍👦‍👦 ユーザ一覧 👨‍👩‍👦‍👦</a>
+            <div style="margin-bottom: 30px"></div>
+
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-        	<p><a href="/words">名言の一覧ページ</a></p>
-
-        </div>
-    </div>
-
-    <div>
-        <p><a href="/users">登録ユーザー一覧</a></p>
-    </div>
 </main>
 
 

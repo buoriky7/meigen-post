@@ -6,18 +6,18 @@ class FavoritesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get index_lank_all" do
-    get favorites_index_lank_all_url
+  test "should get index_rank_all" do
+    get favorites_index_rank_all_url
     assert_response :success
   end
 
-  test "should get lank_pro" do
-    get favorites_lank_pro_url
+  test "should get rank_pro" do
+    get favorites_rank_pro_url
     assert_response :success
   end
 
-  test "should get lank_ama" do
-    get favorites_lank_ama_url
+  test "should get rank_ama" do
+    get favorites_rank_ama_url
     assert_response :success
   end
 

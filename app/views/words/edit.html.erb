@@ -1,22 +1,32 @@
-<h1>Words#edit</h1>
-<p>Find me in app/views/words/edit.html.erb</p>
 
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head">解説内容の編集
+			</div>
 
-<div>
-	<p>投稿日：<%= @word.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-	<p>名言：<%= @word.sp_word %></p>
-	<p>発言者：<%= @word.speaker %></p>
-	<p>職業：<%= @word.genre %></p>
-	<p>区分：<%= @word.word_flag %>
-		<p>性別：<%= @word.speaker_gender %></p>
-		<p>解説：<%= @word.commentary %></p>
-</div>
+			<div class="word-edit-head">投稿内容
+			</div>
 
-<div>
-	<p>解説を編集</p>
-	<%= form_for(@word) do |f| %>
-	<%= f.text_area :commentary %>
-	<%= f.submit '編集' %>
-	<% end %>
-</div>
+			<div class="word-edit">
+				<p><%= attachment_image_tag(@word, :image, :fill, 80, 80, fallback: 'noimage.jpeg', :size =>'80x80') %></p>
+				<p>名言：<%= @word.sp_word %></p>
+				<p>発言者：<%= @word.speaker %></p>
+				<p>職業：<%= @word.genre %></p>
+				<p>区分：<%= @word.word_flag %></p>
+				<p>性別：<%= @word.speaker_gender %></p>
+				<p>投稿日：<%= @word.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+				<p>解説：<%= @word.commentary %></p>
+			</div>
+
+				<div class="word-edit2">
+					<div class="word-edit-head">解説文を編集</div>
+					<%= form_for(@word) do |f| %>
+					<%= f.text_area :commentary %>
+					<p style ="margin-top: 20px;"><%= f.submit '更新', class: "btn btn-primary active" %></p>
+					<% end %>
+				</div>
+		</div>
+	</div>
+</main>
 

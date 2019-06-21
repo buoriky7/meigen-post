@@ -1,39 +1,46 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
-<p>全登録者数<%= @user.count %>人</p>
-<table class="table table-bordered" style="text-align: center;" >
-	<thead>
-		<tr>
-			<th>No</th>
-			<th>ID</th>
-			<th>名前</th>
-			<th>出身</th>
-			<th>性別</th>
-			<th>投稿数</th>
-			<th>総合いいね数</th>
-
-		</tr>
-	</thead>
+<div class="container">
+	<div class="row">
+		<div class="menu-head">登録ユーザー
+		</div>
 
 
-	<% @user.each_with_index do |user, i| %>
-		<tbody>
-			<tr>
-				<td><%= i+1 %></td>
-				<td><%= user.id %></td>
-				<td><%= user.name %></td>
-				<td><%= user.prefecture %></td>
-				<td><%= user.user_gender %></td>
-				<td><%= user.words.count %>件</td>
-				<td><%= user.favorites.count %>件</td>
-				<td><%= link_to "詳細", user_path(user.id) %></td>
-				<% if user_signed_in? %>
-					<% if current_user.user_flag == 1 %>
+
+		<p>全登録者数<%= @user.count %>人</p>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>名前</th>
+						<th>出身</th>
+						<th>性別</th>
+						<th>投稿数</th>
+						<th>総合いいね数</th>
+						<th></th>
+
+					</tr>
+				</thead>
+
+
+				<% @user.each_with_index do |user, i| %>
+				<tbody>
+					<tr>
+						<td><%= user.id %></td>
+						<td><%= user.name %></td>
+						<td><%= user.prefecture %></td>
+						<td><%= user.user_gender %></td>
+						<td><%= user.words.count %>件</td>
+						<td><%= user.favorites.count %>件</td>
+						<td><%= link_to "詳細", user_path(user.id), class: 'btn btn-default', role: 'button' %></td>
+						<% if user_signed_in? %>
+						<% if current_user.user_flag == 1 %>
 						<td><%= link_to "削除", user_path(user.id),class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-					<% end %>
+						<% end %>
+						<% end %>
+					</tr>
+				</tbody>
 				<% end %>
-			</tr>
-		</tbody>
-	<% end %>
-</table>
+			</table>
+		</div>
+	</div>
+</div>
