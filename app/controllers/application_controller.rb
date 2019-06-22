@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 	def set_search
 	  #@search = Article.search(params[:q])
 	  @search = Word.ransack(params[:q]) #ransackメソッド推奨
-	  @search_words = @search.result.page(params[:page])
+	  @search_words = @search.result.page(params[:page]).per(50).reverse_order
 
 	end
 

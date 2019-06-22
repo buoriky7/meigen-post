@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="menu-head">お気に入り一覧
 			</div>
-			<div class="fav-count">合計<%= @favorite.count %>件</div>
+			<div class="fav-count">合計<%= @favorites.count %>件</div>
 
 			<div class="table-responsive">
 				<table class="table">
@@ -28,7 +28,7 @@
 							<tr>
 								<td><%= i+1 %></td>
 								<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'50x50' %></th>
-								<td><%= favorite.word.sp_word %></td>
+								<td><%= simple_format(favorite.word.sp_word) %></td>
 								<td><%= favorite.word.speaker %></td>
 								<td><%= favorite.word.genre %></td>
 								<td><%= favorite.word.user.name %></td>
@@ -38,8 +38,9 @@
 							</tr>
 						</tbody>
 					<% end %>
-
 				</table>
+			<div style="text-align: center;">
+				<%= paginate @favorite, class: "pagination" %>
 			</div>
 		</div>
 	</div>

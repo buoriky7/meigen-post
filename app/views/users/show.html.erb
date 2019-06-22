@@ -22,7 +22,7 @@
 			</div>
 
 			<div class="fav-user">
-				<p>　投稿一覧　合計<%= @word.count %>件</p>
+				<p>　投稿一覧　合計<%= @words.count %>件</p>
 			</div>
 
 
@@ -50,7 +50,7 @@
 							<th><%= i+1 %></th>
 							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
 							<th><%= word.sp_word %></th>
-							<th><%= word.speaker %></th>
+							<th><%= simple_format(word.speaker) %></th>
 							<th><%= word.genre %></th>
 							<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
 							<th><%= word.favorites.count %> 件</th>
@@ -66,8 +66,12 @@
 					<% end %>
 				</table>
 			</div>
+			<div style="text-align: center;">
+				<%= paginate @word, class: "pagination" %>
+			</div>
 		</div>
 	</div>
+
 </main>
 
 

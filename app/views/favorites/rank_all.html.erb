@@ -39,7 +39,7 @@
 						</td>
 						<td><%= simple_format(word.sp_word) %></td>
 						<td><%= link_to word.user.name, user_path(word.user.id) %></td>
-						<td><%= link_to "解説", word_path(word.id), class: 'btn btn-default', role: 'button' %></td>
+						<td><%= link_to "解説", word_path(word.id), class: "btn btn-default active" %></td>
 					</tr>
 					<% end %>
 				</tbody>

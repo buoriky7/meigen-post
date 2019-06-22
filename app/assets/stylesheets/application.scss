@@ -115,7 +115,7 @@ footer{
 .pickup-word .pickup-word-img {
   text-align: center;
   float: left;
-  width: 100px;
+  width: 200px;
   box-sizing: border-box;
   margin-left: 30%;
 }
@@ -476,4 +476,29 @@ footer{
 }
 .actions{
   margin-top: 40px;
+}
+
+
+
+.about {
+  display: inline-block;
+  width: 50%;
+  max-width: 100%;
+  border: 1px solid rgb(103, 58, 183);
+  border-radius: 10px;
+  padding: 0 .8em .8em;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 25%;
+}
+.about .about-title {
+  padding: .4em .8em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 -.8em .4em -.8em;
+  background: rgb(103, 58, 183);
+  color: rgb(255, 255, 255);
+}
+.about > :last-child {
+  margin-bottom: 0;
 }
