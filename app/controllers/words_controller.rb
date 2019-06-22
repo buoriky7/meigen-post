@@ -11,30 +11,23 @@ class WordsController < ApplicationController
     @word.user_id = current_user.id
      if @word.save(word_params)
         redirect_to '/words'
-        flash[:notice] = "successfully"
+        flash[:notice] = "OK"
      else
+        flash[:notice] = "NG"
         redirect_back(fallback_location: root_path)
     end
   end
 
   def index
-    @words = Word.all
+    @words = Word.page(params[:page]).reverse_order
 
   end
 
-  def index_pro
-    @words = Word.all
-
-  end
-
-  def index_ama
-    @words = Word.all
-
-  end
 
   def show
     @word = Word.find(params[:id])
-    @favorite = @word.favorites
+    @favorite = @word.favorites.page(params[:page]).per(1).reverse_order
+    @favorites = @word.favorites.all
   end
 
   def edit
@@ -51,8 +44,9 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
     if @word.update(word_params)
        redirect_to word_path
-       flash[:notice] = "successfully"
+       flash[:notice] = "OK"
     else
+       flash[:notice] = "NG"
        render :edit
     end
   end

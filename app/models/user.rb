@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :words, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
+  validates :name, presence: true, length: { in: 1..15 }
 end

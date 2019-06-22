@@ -19,7 +19,7 @@
 			<div>
 				<% @search_words.each do |word| %>
 
-					<div class="word-user"><%= word.user.prefecture %>出身  
+					<div class="word-user"><%= word.user.prefecture %>出身
 						<%= link_to word.user.name, user_path(word.user.id) %> さんの投稿
 					</div>
 					<div class="pickup-word">
@@ -41,6 +41,9 @@
 						</div>
 					</div>
 				<% end %>
+			</div>
+			<div style="text-align: center;">
+				<%= paginate @search_words, class: "pagination" %>
 			</div>
 		</div>
 	</div>

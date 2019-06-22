@@ -8,7 +8,7 @@
 
 			<div class="word-show-image">
 				<%= attachment_image_tag @word, :image, :fill, 100, 100, fallback: "noimage.jpg", :size =>'100x100' %>
-				<p class="word-show-speaker"><br><b>( <%= @word.speaker %> )</b></p>
+				<p class="word-show-speaker"><br><b> <%= @word.speaker %> </b></p>
 				<% if @word.word_flag == "著名人" %>
 				<a href="https://ja.wikipedia.org/wiki/<%= @word.speaker %> "class="btn btn-success active">Wikipediaへ</a>
 				<% end %></p>
@@ -72,7 +72,7 @@
 
 			<!-- いいねしてくたユーザー情報 -->
 			<div class="fav-user">
-				<p>　合計<%= @favorite.count %>人　お気に入り</p>
+				<p>　合計<%= @favorites.count %>人　お気に入り</p>
 			</div>
 
 			<div class="table-responsive">
@@ -101,6 +101,9 @@
 					</tbody>
 					<% end %>
 				</table>
+			</div>
+			<div style="text-align: center;">
+				<%= paginate @favorite, class: "pagination" %>
 			</div>
 		</div>
 	</div>

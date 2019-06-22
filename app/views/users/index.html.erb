@@ -5,7 +5,7 @@
 
 
 
-		<p>全登録者数<%= @user.count %>人</p>
+		<p>全登録者数<%= @users.count %>人</p>
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
@@ -41,6 +41,9 @@
 				</tbody>
 				<% end %>
 			</table>
+		</div>
+		<div style="text-align: center;">
+			<%= paginate @user, class: "pagination" %>
 		</div>
 	</div>
 </div>

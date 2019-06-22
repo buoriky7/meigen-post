@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update, :destroy]
   def index
-    @user = User.all
-
+    @user = User.page(params[:page]).per(100).reverse_order
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
-    @word = @user.words
+    @word = @user.words.page(params[:page]).per(100).reverse_order
+    @words = @user.words.all
   end
 
 
@@ -22,13 +23,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-       flash[:success] = "ユーザー情報を編集しました。"
+       flash[:notice] = "OK"
        redirect_to user_path(@user.id)
     else
-      flash[:danger] = "編集に失敗しました..."
+      flash[:notice] = "NG"
       render action: :edit
     end
-  end
+  end 
 
   def new
   end

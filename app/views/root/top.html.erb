@@ -35,8 +35,11 @@
              </div>
 
             <div class="menu">メニュー</div>
-
+            <% if user_signed_in? %>
             <a class="top-link" href="/words/new" >📩 名言を投稿 📩</a>
+            <% else %>
+            <a class="top-link" href="/users/sign_up" >📖 新規  登録 📖</a>
+            <% end %>
             <a class="top-link" href="/words" >👓 名言の一覧 👓</a>
             <a class="top-link" href="/favorites/rank_all" > 👑 ランキング 👑</a>
             <a class="top-link" href="/users" > 👨‍👩‍👦‍👦 ユーザ一覧 👨‍👩‍👦‍👦</a>
