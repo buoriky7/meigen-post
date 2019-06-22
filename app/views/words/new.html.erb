@@ -12,12 +12,12 @@
 
                 <div class="form">
                     <p class="form-head">名言</p>
-                    <%= f.text_area :sp_word, placeholder:"〜50文字", class: "word-new-form-2" %>
+                    <%= f.text_area :sp_word, placeholder:"（〜50文字）", class: "word-new-form-2" %>
                 </div>
 
                 <div class="form">
                     <p class="form-head">発言者</p>
-                    <%= f.text_field :speaker, placeholder:"〜15文字", class: "word-new-form-1" %>
+                    <%= f.text_field :speaker, placeholder:"（〜15文字）", class: "word-new-form-1" %>
                 </div>
 
 
@@ -34,21 +34,21 @@
 
                 <div class="form">
                     <p class="form-head">職業／ジャンル</p>
-                    <%= f.text_field :genre, placeholder:"〜10文字", class: "word-new-form-1" %>
+                    <%= f.text_field :genre, placeholder:"（〜10文字）", class: "word-new-form-1" %>
                 </div>
 
 
                 <div class="form">
                     <p class="form-head">発言者の区分</p>
                     <label><%= f.radio_button :word_flag, "著名人" %> 著名人</label>
-                    <label><%= f.radio_button :word_flag, "一般人" %> 一般人</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :word_flag, "一般人" %> 一般人</label>
                 </div>
 
                 <div class="form">
                     <p class="form-head">発言者の性別</p>
                     <label><%= f.radio_button :speaker_gender, "男性" %> 男性</label>
-                    <label><%= f.radio_button :speaker_gender, "女性" %> 女性</label>
-                    <label><%= f.radio_button :speaker_gender, "その他" %> その他</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :speaker_gender, "女性" %> 女性</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :speaker_gender, "その他" %> その他</label>
                 </div>
                 <div style="text-align: center;">
                   <%= f.submit "新規投稿", class: "btn btn-success active"  %>
