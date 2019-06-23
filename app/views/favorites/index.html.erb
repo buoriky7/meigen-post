@@ -27,7 +27,7 @@
 						<tbody>
 							<tr>
 								<td><%= i+1 %></td>
-								<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'50x50' %></th>
+								<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "/images/noimage.jpg", :size =>'50x50' %></th>
 								<td><%= simple_format(favorite.word.sp_word) %></td>
 								<td><%= favorite.word.speaker %></td>
 								<td><%= favorite.word.genre %></td>

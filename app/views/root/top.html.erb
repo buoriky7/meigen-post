@@ -21,7 +21,7 @@
             <div class="pickup-word">
 
                 <figure class="pickup-word-img">
-                    <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: 'noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
+                    <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: '/images/noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
                     <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>(<%= @word.genre %>)
                     </figcaption>
 

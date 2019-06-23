@@ -48,7 +48,7 @@
 					<tbody>
 						<tr>
 							<th><%= i+1 %></th>
-							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
+							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "/images/noimage.jpg", :size =>'60x60' %></th>
 							<th><%= word.sp_word %></th>
 							<th><%= simple_format(word.speaker) %></th>
 							<th><%= word.genre %></th>

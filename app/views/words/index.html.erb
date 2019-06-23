@@ -25,7 +25,7 @@
 					<div class="pickup-word">
 
 						<figure class="pickup-word-img">
-							<%= link_to attachment_image_tag(word, :image, :fill, 80, 80, fallback: 'noimage.jpeg', :size =>'80x80'), word_path(word.id) %>
+							<%= link_to attachment_image_tag(word, :image, :fill, 80, 80, fallback: '/images/noimage.jpeg', :size =>'80x80'), word_path(word.id) %>
 							<figcaption style="font-size: 15px;"><b><%= word.speaker %></b><br>(<%= word.genre %>)<br>
 								<% if word.word_flag == "著名人" %>
 									<button type="button" class="btn btn-success btn-xs"><a href="https://ja.wikipedia.org/wiki/<%= word.speaker %>"> - Wiki -</a></button>
