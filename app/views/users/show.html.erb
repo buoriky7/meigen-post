@@ -49,13 +49,8 @@
 					<tbody>
 						<tr>
 							<th><%= i+1 %></th>
-<<<<<<< HEAD
 							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "/images/noimage.jpg", :size =>'60x60' %></th>
 							<th><%= word.sp_word %></th>
-=======
-							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
-							<th><%= simple_format(word.sp_word) %></th>
->>>>>>> 101d2fceed0da9e5bce928cf0a7ef38eef6f093e
 							<th><%= simple_format(word.speaker) %></th>
 							<th><%= word.genre %></th>
 							<th><%= word.created_at.strftime('%Y/%m/%d') %></th>

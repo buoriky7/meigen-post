@@ -9,13 +9,9 @@
 			</div>
 
 			<div class="word-edit">
-<<<<<<< HEAD
+
 				<p><%= attachment_image_tag(@word, :image, :fill, 80, 80, fallback: '/images/noimage.jpeg', :size =>'80x80') %></p>
 				<p>名言：<%= @word.sp_word %></p>
-=======
-				<p><%= attachment_image_tag(@word, :image, :fill, 80, 80, fallback: 'noimage.jpeg', :size =>'80x80') %></p>
-				<p>名言：<%= simple_format(@word.sp_word) %></p>
->>>>>>> 101d2fceed0da9e5bce928cf0a7ef38eef6f093e
 				<p>発言者：<%= @word.speaker %></p>
 				<p>職業：<%= @word.genre %></p>
 				<p>区分：<%= @word.word_flag %></p>
