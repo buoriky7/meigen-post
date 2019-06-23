@@ -29,7 +29,9 @@ class UsersController < ApplicationController
       flash[:notice] = "NG"
       render action: :edit
     end
-  end 
+  end
+
+
 
   def new
   end
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
       if current_user.user_flag == 1
         user.destroy
-        redirect_to action: '/users'
+        redirect_to '/users'
       else
         user.destroy
         redirect_to '/'
@@ -52,7 +54,8 @@ class UsersController < ApplicationController
   		:name,
   		:prefecture,
   		:user_gender,
-  		:email)
+  		:email,
+      :user_flag)
 
   end
 

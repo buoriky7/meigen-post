@@ -15,6 +15,7 @@
 			</div>
 			<div style="margin : 30px 0 30px 35%;">
 				<% if @user == current_user %>
+				<% elsif current_user.user_flag == 1 %>
 				<span class="word-show-menu"><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-primary active" %></span>
 				<span class="word-show-menu"><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-warning active" %></span>
 
@@ -37,7 +38,7 @@
 							<th>発言者</th>
 							<th>職業／ジャンル</th>
 							<th>投稿日時</th>
-							<th>point</th>
+							<th>お気に入り</th>
 							<th></th>
 							<th></th>
 						</tr>
@@ -49,11 +50,11 @@
 						<tr>
 							<th><%= i+1 %></th>
 							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
-							<th><%= word.sp_word %></th>
+							<th><%= simple_format(word.sp_word) %></th>
 							<th><%= simple_format(word.speaker) %></th>
 							<th><%= word.genre %></th>
 							<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
-							<th><%= word.favorites.count %> 件</th>
+							<th><%= number_with_delimiter(word.favorites.count) %> 件</th>
 							<th><%= link_to "解説", word_path(word.id), class: "btn btn-default active " %></th>
 							<% if user_signed_in? %>
 							<% if word.user == current_user %>
