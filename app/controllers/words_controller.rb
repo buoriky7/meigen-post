@@ -36,8 +36,14 @@ class WordsController < ApplicationController
 
   def destroy
     word = Word.find(params[:id])
-    word.destroy
-    redirect_to user_path(word.user.id)
+
+      if current_user.user_flag == 1
+        word.destroy
+        redirect_to action: 'index'
+      else
+        word.destroy
+        redirect_to user_path(word.user.id)
+      end
   end
 
   def update
@@ -58,6 +64,7 @@ class WordsController < ApplicationController
     def correct_user
       word = Word.find(params[:id])
       if current_user.id == word.user.id
+      elsif current_user.user_flag == 1
       else
         redirect_back(fallback_location: root_path)
       end

@@ -31,7 +31,13 @@
 						（<%= @word.word_flag %>）】
 					</p>
 				</div>
-
+				<div style="margin-top: 40px;">
+						<% if user_signed_in? %>
+						<% if current_user.user_flag == 1 %>
+						<%= link_to "投稿削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を削除" %>
+						<% end %>
+						<% end %>
+				</div>
 			</div>
 
 
@@ -46,7 +52,7 @@
 					<%= link_to "解説を編集", edit_word_path(@word.id),class: "btn btn-warning active" %>
 				</span>
 				<span class="word-show-menu">
-					<%= link_to "削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を投稿を削除" %>
+					<%= link_to "削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を削除" %>
 				</span>
 
 				<% else %>
@@ -72,7 +78,7 @@
 
 			<!-- いいねしてくたユーザー情報 -->
 			<div class="fav-user">
-				<p>　合計<%= @favorites.count %>人　お気に入り</p>
+				<p>　合計<%= number_with_delimiter(@favorites.count) %>人　お気に入り</p>
 			</div>
 
 			<div class="table-responsive">
