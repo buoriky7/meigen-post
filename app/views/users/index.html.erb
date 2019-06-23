@@ -3,9 +3,11 @@
 		<div class="menu-head">登録ユーザー
 		</div>
 
+		<div class="fav-user">
+		<p>登録者<%= number_with_delimiter(@users.count) %>人</p>
+		</div>
 
 
-		<p>全登録者数<%= @users.count %>人</p>
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
@@ -15,7 +17,7 @@
 						<th>出身</th>
 						<th>性別</th>
 						<th>投稿数</th>
-						<th>総合いいね数</th>
+						<th>お気に入り登録数</th>
 						<th></th>
 
 					</tr>
@@ -29,8 +31,8 @@
 						<td><%= user.name %></td>
 						<td><%= user.prefecture %></td>
 						<td><%= user.user_gender %></td>
-						<td><%= user.words.count %>件</td>
-						<td><%= user.favorites.count %>件</td>
+						<td><%= number_with_delimiter(user.words.count) %>件</td>
+						<td><%= number_with_delimiter(user.favorites.count) %>件</td>
 						<td><%= link_to "詳細", user_path(user.id), class: 'btn btn-default', role: 'button' %></td>
 						<% if user_signed_in? %>
 						<% if current_user.user_flag == 1 %>
