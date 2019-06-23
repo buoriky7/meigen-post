@@ -15,10 +15,13 @@
 			</div>
 			<div style="margin : 30px 0 30px 35%;">
 				<% if @user == current_user %>
-				<% elsif current_user.user_flag == 1 %>
 				<span class="word-show-menu"><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-primary active" %></span>
 				<span class="word-show-menu"><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-warning active" %></span>
-
+				<% end %>
+				<% if user_signed_in? %>
+				<% if current_user.user_flag == 1 %>
+				<span class="word-show-menu"><%= link_to "削除", user_path(@user.id),class: "btn btn-danger active", method: :delete, "data-confirm" => "本当に削除しますか？" %></span>
+				<% end %>
 				<% end %>
 			</div>
 
@@ -49,7 +52,7 @@
 					<tbody>
 						<tr>
 							<th><%= i+1 %></th>
-							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "/images/noimage.jpg", :size =>'60x60' %></th>
+							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "/images/noimage.jpeg", :size =>'60x60' %></th>
 							<th><%= word.sp_word %></th>
 							<th><%= simple_format(word.speaker) %></th>
 							<th><%= word.genre %></th>
