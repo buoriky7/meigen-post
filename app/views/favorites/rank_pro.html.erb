@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="menu-head">月間ランキング【著名人】
+		</div>
+
+
+
+
+		<ul class="nav nav-pills">
+			<li role="presentation"><a href="/favorites/rank_all" class="btn btn-info active">総合</a></li>
+			<li role="presentation"><a href="/favorites/rank_pro" class="btn btn-default active">著名人</a></li>
+			<li role="presentation"><a href="/favorites/rank_ama" class="btn btn-info active">一般人</a></li>
+		</ul>
+		<div style="margin-bottom: 10px;"></div>
+
+
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>順位</th>
+						<th>いいね</th>
+						<th>イメージ</th>
+						<th>発言者</th>
+						<th>名言</th>
+						<th>投稿者</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @word_ranking.each.with_index(1) do |word, i| %>
+					<tr>
+						<td><%= i %>位 </td>
+						<td><%= word.favorites.count %> 件</td>
+						<td><%= attachment_image_tag word, :image, :fill, 70, 70, fallback: "noimage.jpg", :size =>'70x70' %>
+						</td>
+						<td><%= word.speaker %><br>
+							(<%= word.genre %>)<br>
+						</td>
+						<td><%= simple_format(word.sp_word) %></td>
+						<td><%= link_to word.user.name, user_path(word.user.id) %></td>
+						<td><%= link_to "解説", word_path(word.id), class: 'btn btn-default activ' %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

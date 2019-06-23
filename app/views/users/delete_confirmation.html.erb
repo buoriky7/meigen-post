@@ -1,0 +1,20 @@
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head">退会確認
+			</div>
+			<h4 style="text-align: center;">
+				退会手続きをされますと<br>
+				データはすべて消去されます。<br>
+				本当に退会してよろしいですか？
+			</h4>
+
+			<div style="margin:40px 0 35% 42%">
+				<%= link_to "退会する", user_path(current_user.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "本当に退会しますか？" %>
+
+				<%= link_to "戻る", :back, class: "btn btn-default active" %>
+			</div>
+		</div>
+	</div>
+</main>

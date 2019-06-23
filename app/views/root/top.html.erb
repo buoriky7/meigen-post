@@ -1,0 +1,54 @@
+
+<main>
+    <div class="container">
+        <div class="row">
+
+            <div class="top-guide">
+                <div class="wrapper">
+
+                    <div class="caption">現在の名言は<%= number_with_delimiter(@words.count) %>件
+                    </div>
+                    <div class="heading"><b>名言 - POST</b>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="menu"> PICK UP 名言 </div>
+
+            <div class="pickup-word">
+
+                <figure class="pickup-word-img">
+                    <%= link_to attachment_image_tag(@word, :image, :fill, 100, 100, fallback: 'noimage.jpeg', :size =>'100x100'), word_path(@word.id) %>
+                    <figcaption style="font-size: 15px;"><b><%= @word.speaker %></b><br>(<%= @word.genre %>)
+                    </figcaption>
+
+                </figure>
+                <div class="pickup-word-content">
+                    <p><%= simple_format(@word.sp_word) %></p>
+                </div>
+            </div>
+            <div style="  margin-left: 60%;">
+                <%= link_to "解説", word_path(@word.id) ,class: "btn btn-default active" %>
+             </div>
+
+            <div class="menu">メニュー</div>
+            <% if user_signed_in? %>
+            <a class="top-link" href="/words/new" >📩 名言を投稿 📩</a>
+            <% else %>
+            <a class="top-link" href="/users/sign_up" >📖 新規  登録 📖</a>
+            <% end %>
+            <a class="top-link" href="/words" >👓 名言の一覧 👓</a>
+            <a class="top-link" href="/favorites/rank_all" > 👑 ランキング 👑</a>
+            <a class="top-link" href="/users" > 👨‍👩‍👦‍👦 ユーザ一覧 👨‍👩‍👦‍👦</a>
+            <div style="margin-bottom: 30px"></div>
+
+        </div>
+    </div>
+
+</main>
+
+
+

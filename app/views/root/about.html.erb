@@ -1,0 +1,30 @@
+<main>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="about">
+              <div class="about-title">名言-POSTの使い方</div>
+
+              <p>①当サイトは<b>名言のSNS</b>です。</p>
+              <p>②あなたが耳にしたその一言、<b>実は名言かも</b>しれません。</p>
+              <p>③発言者の区分が<b>著名人</b>の場合は、<b>Wikipediaへリンク</b>することが可能です。</p>
+              <p>④<b>会員登録す</b>ることにより、<b>名言の投稿やお気に入りリストの管理が可能</b>です。</p>
+              <p>⑤一度投稿した名言は<b>解説のみ編集可能</b>です。</p>
+              <p>⑥発言者の<b>職業、人名で名言の検索が可能</b>です。</p>
+              <p style="text-align: right;">以上</p>
+
+          </div>
+
+          <div style="margin-top: 60px;">
+            <% if user_signed_in? %>
+            <a class="top-link" href="/words/new" >📩 名言を投稿 📩</a>
+            <% else %>
+            <a class="top-link" href="/users/sign_up" >📖 新規  登録 📖</a>
+            <% end %>
+
+        </div>
+
+    </div>
+</div>
+</main>

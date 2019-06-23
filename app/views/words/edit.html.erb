@@ -1,0 +1,39 @@
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head">解説内容の編集
+			</div>
+
+			<div class="word-edit-head">投稿内容
+			</div>
+
+			<div class="word-edit">
+				<p><%= attachment_image_tag(@word, :image, :fill, 80, 80, fallback: 'noimage.jpeg', :size =>'80x80') %></p>
+				<p>名言：<%= simple_format(@word.sp_word) %></p>
+				<p>発言者：<%= @word.speaker %></p>
+				<p>職業：<%= @word.genre %></p>
+				<p>区分：<%= @word.word_flag %></p>
+				<p>性別：<%= @word.speaker_gender %></p>
+				<p>投稿日：<%= @word.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+				<p>解説：<%= simple_format(@word.commentary) %></p>
+			</div>
+
+			<div class="word-edit2">
+				<div class="word-edit-head">解説文を編集
+				</div>
+				<%= form_for(@word) do |f| %>
+					<div class="form">
+						<p class="form-head">名言の解説</p>
+						<%= f.text_area :commentary, class: "word-new-form-2" %>
+					</div>
+
+					<p style ="margin-top: 20px;">
+						<%= f.submit '更新', class: "btn btn-primary active" %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</main>
+

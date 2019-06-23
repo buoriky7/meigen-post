@@ -1,0 +1,68 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <% if user_signed_in? %>
+            <div class="menu-head">新規投稿
+            </div>
+
+
+            <div class="word-new">
+                <%= form_for(@word) do |f| %>
+
+
+                <div class="form">
+                    <p class="form-head">発言者</p>
+                    <%= f.text_field :speaker, placeholder:"（1〜15文字）", class: "word-new-form-1" %>
+                </div>
+
+
+                <div class="form">
+                    <p class="form-head">イメージ</p>
+                    <div style="margin-left: 45%;">
+                        <%= f.attachment_field :image %></div>
+                    </div>
+                </div>
+
+                <div class="form">
+                    <p class="form-head">職業／ジャンル</p>
+                    <%= f.text_field :genre, placeholder:"（1〜10文字）", class: "word-new-form-1" %>
+                </div>
+
+
+                <div class="form">
+                    <p class="form-head">発言者の区分</p>
+                    <label><%= f.radio_button :word_flag, "著名人" %> 著名人</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :word_flag, "一般人" %> 一般人</label>
+                </div>
+
+                <div class="form">
+                    <p class="form-head">発言者の性別</p>
+                    <label><%= f.radio_button :speaker_gender, "男性" %> 男性</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :speaker_gender, "女性" %> 女性</label>
+                    <label style="margin-left: 30px;"><%= f.radio_button :speaker_gender, "その他" %> その他</label>
+                </div>
+                
+                <div class="form">
+                    <p class="form-head">名言</p>
+                    <%= f.text_area :sp_word, placeholder:"（1〜88文字）", class: "word-new-form-2" %>
+                </div>
+
+
+
+                <div class="form">
+                    <p class="form-head">名言の解説</p>
+                    <%= f.text_area :commentary, class: "word-new-form-2" %>
+                </div>
+                <div style="text-align: center;">
+                  <%= f.submit "新規投稿", class: "btn btn-success active"  %>
+              </div>
+
+              <% end %>
+
+              <% end %>
+          </div>
+      </div>
+  </div>
+</main>
+
+

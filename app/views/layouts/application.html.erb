@@ -1,15 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MeigenPost</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>MeigenPost</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            📮 名言-POST 📮
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarEexample7">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= search_form_for @search, url: words_path, :class=>"navbar-form navbar-left" do |f| %>
+                <%= f.text_field :speaker_or_genre_cont,  placeholder: ' 職業 or 発言者' %>
+                <button type="submit" class="btn btn-default">検索</button>
+              <% end %>
+            </li>
+
+              <% if user_signed_in? %>
+
+                <ul class="nav navbar-nav">
+                  <li>
+                    <%= link_to user_path(current_user.id) do %>
+                      <%= current_user.name %>さん のマイページ
+                    <% end %>
+                  </li>
+                  <li>
+                    <a href="/words/new">新規投稿</a>
+                  </li>
+                  <li>
+                    <a href="/words/">名言閲覧</a>
+                  </li>
+                  <li>
+                    <%= link_to "お気に入りリスト", "/favorites" %>
+                  </li>
+                  <li>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+
+                <% elsif %>
+
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <a href="/about">about</a>
+                    </li>
+                    <li>
+                      <a href="/users/sign_in">ログイン</a>
+                    </li>
+                    <li>
+                      <a href="/users/sign_up">新規会員登録</a>
+                    </li>
+                  </ul>
+
+                <% end %>
+            </div>
+          </div>
+        </nav>
+  </header>
+
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+
+
+    <body>
+
+      <%= yield %>
+    </body>
+
+    <footer>
+
+    </footer>
+    </html>

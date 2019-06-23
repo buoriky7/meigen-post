@@ -1,0 +1,47 @@
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head">お気に入り一覧
+			</div>
+			<div class="fav-count">合計<%= number_with_delimiter(@favorites.count) %>件</div>
+
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>イメージ</th>
+							<th>名言</th>
+							<th>発言者</th>
+							<th>職業／ジャンル</th>
+							<th>投稿者</th>
+							<th>追加日</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+
+
+					<% @favorite.each_with_index do |favorite, i| %>
+						<tbody>
+							<tr>
+								<td><%= i+1 %></td>
+								<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'50x50' %></th>
+								<td><%= simple_format(favorite.word.sp_word) %></td>
+								<td><%= favorite.word.speaker %></td>
+								<td><%= favorite.word.genre %></td>
+								<td><%= favorite.word.user.name %></td>
+								<td><%= favorite.word.created_at.strftime('%Y/%m/%d') %></td>
+								<td><%= link_to "解説", word_path(favorite.word.id) ,class: "btn btn-default active" %></td>
+								<td><%= link_to "削除", word_favorites_path(favorite.word), class: "btn btn-danger active", method: :delete %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			<div style="text-align: center;">
+				<%= paginate @favorite, class: "pagination" %>
+			</div>
+		</div>
+	</div>
+</main>

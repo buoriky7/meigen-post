@@ -1,0 +1,89 @@
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="menu-head"><%= @user.name %>さん のマイページ
+			</div>
+			<div class="mypage">
+				<div class="mypage-title">　 information　 </div>
+				<p class="mypage-show">名前　：<%= @user.name %></p>
+				<p class="mypage-show">性別　：<%= @user.user_gender %></p>
+				<p class="mypage-show">出身　：<%= @user.prefecture %></p>
+
+				<% if @user == current_user %>
+				<p class="mypage-show">E-mail：<%= @user.email %></p>
+				<% end %>
+			</div>
+			<div style="margin : 30px 0 30px 35%;">
+				<% if @user == current_user %>
+				<% elsif current_user.user_flag == 1 %>
+				<span class="word-show-menu"><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-primary active" %></span>
+				<span class="word-show-menu"><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-warning active" %></span>
+
+				<% end %>
+			</div>
+
+			<div class="fav-user">
+				<p>　投稿一覧　合計<%= @words.count %>件</p>
+			</div>
+
+
+
+			<div class="table">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>イメージ</th>
+							<th>名言</th>
+							<th>発言者</th>
+							<th>職業／ジャンル</th>
+							<th>投稿日時</th>
+							<th>お気に入り</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+
+
+					<% @word.each_with_index do |word, i| %>
+					<tbody>
+						<tr>
+							<th><%= i+1 %></th>
+							<th><%= attachment_image_tag word, :image, :fill, 50, 50, fallback: "noimage.jpg", :size =>'60x60' %></th>
+							<th><%= simple_format(word.sp_word) %></th>
+							<th><%= simple_format(word.speaker) %></th>
+							<th><%= word.genre %></th>
+							<th><%= word.created_at.strftime('%Y/%m/%d') %></th>
+							<th><%= number_with_delimiter(word.favorites.count) %> 件</th>
+							<th><%= link_to "解説", word_path(word.id), class: "btn btn-default active " %></th>
+							<% if user_signed_in? %>
+							<% if word.user == current_user %>
+							<th><%= link_to "削除", word_path(word.id), class: "btn btn-danger active ", method: :delete, "data-confirm" => "投稿を削除" %>
+								<% end %>
+								<% end %>
+							</th>
+						</tr>
+					</tbody>
+					<% end %>
+				</table>
+			</div>
+			<div style="text-align: center;">
+				<%= paginate @word, class: "pagination" %>
+			</div>
+		</div>
+	</div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+

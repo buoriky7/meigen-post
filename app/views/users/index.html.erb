@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="menu-head">登録ユーザー
+		</div>
+
+		<div class="fav-user">
+		<p>登録者<%= number_with_delimiter(@users.count) %>人</p>
+		</div>
+
+
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>名前</th>
+						<th>出身</th>
+						<th>性別</th>
+						<th>投稿数</th>
+						<th>お気に入り登録数</th>
+						<th></th>
+
+					</tr>
+				</thead>
+
+
+				<% @user.each_with_index do |user, i| %>
+				<tbody>
+					<tr>
+						<td><%= user.id %></td>
+						<td><%= user.name %></td>
+						<td><%= user.prefecture %></td>
+						<td><%= user.user_gender %></td>
+						<td><%= number_with_delimiter(user.words.count) %>件</td>
+						<td><%= number_with_delimiter(user.favorites.count) %>件</td>
+						<td><%= link_to "詳細", user_path(user.id), class: 'btn btn-default', role: 'button' %></td>
+						<% if user_signed_in? %>
+						<% if current_user.user_flag == 1 %>
+						<td><%= link_to "削除", user_path(user.id),class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+						<% end %>
+						<% end %>
+					</tr>
+				</tbody>
+				<% end %>
+			</table>
+		</div>
+		<div style="text-align: center;">
+			<%= paginate @user, class: "pagination" %>
+		</div>
+	</div>
+</div>

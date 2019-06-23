@@ -1,0 +1,985 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+/*リセットCSS*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: silver;
+  margin-top: 50px;
+}
+
+
+/*見出し*/
+
+.top-guide {
+  width: 700px;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-family: serif;
+  font-size: 35px;
+  color: #5F67AE;
+  font-weight: 600;
+
+}
+
+.heading {
+  margin: 10px 0
+}
+
+
+.top-guide .wrapper {
+  padding: 5px;
+  text-align: center;
+  border: 3px solid;
+  border-top: none;
+  width: 700px;
+}
+
+.top-guide .wrapper .caption {
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  overflow: hidden;
+  margin: -5px -8px 0 -8px;
+  position: absolute;
+  width: 700px;
+  font-size: 16px;
+}
+
+.top-guide .wrapper .caption:before,
+.top-guide .wrapper .caption:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  margin-top: -2px;
+  border-top: 3px solid;
+  top: 50%;
+}
+
+.top-guide .wrapper .caption:before {
+  -ms-transform: translate(-100%, 0);
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  margin-left: -30px;
+}
+
+.top-guide .wrapper .caption:after {
+  margin-left: 30px;
+}
+
+
+/*ランダム名言*/
+
+
+.picup{
+  width: 50%;
+  background-position: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.pickup_title{
+  font-size: 25px;
+  color: black;
+}
+.pickup_image{
+  margin-left: 30%;
+}
+.pickup-word::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.pickup-word .pickup-word-img {
+  text-align: center;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  margin-left: 30%;
+}
+.pickup-word .pickup-word-img img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  margin: 0;
+  border-radius: 10px;
+}
+.pickup-word .pickup-word-img figcaption {
+  font-size: .875em;
+  margin: .2em 0;
+
+}
+.pickup-word .pickup-word-content {
+  float: left;
+
+  box-sizing: border-box;
+  background: rgb(255, 251, 199);
+  color: #333;
+  padding: .8em;
+  margin-left: 20px;
+  position: relative;
+  border-radius: 8px;
+  text-align: left;
+  display: inline-block;
+}
+.pickup-word .pickup-word-content::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -10px;
+  border: 10px solid transparent;
+  border-right: 10px solid rgb(255, 251, 199);
+  z-index: 2;
+}
+.pickup-word .pickup-word-content > :last-child {
+  margin-bottom: 0;
+}
+
+
+/*見出しメニュー*/
+.menu {
+  background: rgba(123, 68, 29, 0);
+  padding: .4em .8em;
+  margin: 50px 280px;
+  color: #000;
+  font-size: 25px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(30, 245, 244);
+  border-bottom: .084em dotted rgb(34, 218, 240);
+  text-align: left;
+}
+
+
+/*トップページのリンク*/
+
+.top-link {
+  width: 250px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  margin-left: 40%;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(233, 156, 55);
+  color: rgb(246, 235, 235);
+  font-size: 20px;
+  display: inline-block;
+  padding: .6em 2em;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,.2);
+}
+
+.menu-left{
+  float: left;
+}
+
+
+
+/*新規投稿*/
+.menu-head {
+  background: rgb(3, 169, 244);
+  padding: .4em .6em .3em;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0px 0px 0px .2083em rgb(3, 169, 244);
+  border: .0417em dashed rgb(255, 235, 59);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.word-new{
+  margin:0 auto;
+  margin-top: 10px;
+
+}
+.word-new-form-1{
+  width: 32%;
+}
+
+.word-new-form-2{
+  width: 32%;
+  height: 100px;
+}
+
+
+.form{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-head{
+  font-size: 15px;
+  font-weight: bold;
+
+
+}
+
+.submit{
+  margin:30px 0 20px 46%;
+}
+
+/*名言一覧*/
+.index-switching{
+  margin-left: 40%;
+  margin-bottom: 40px;
+}
+
+.sp-word {
+  display: inline-block;
+  position: relative;
+  border-top: 1px solid rgb(121, 85, 72);
+  border-bottom: 1px solid rgb(121, 85, 72);
+  padding: .8em 1.2em;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.sp-word::before,
+.sp-word::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 14px);
+  background-color: rgb(121, 85, 72);
+}
+.sp-word::before {
+  left: 5px;
+}
+.sp-word::after {
+  right: 5px;
+}
+
+
+.word-user {
+  background: rgb(255, 255, 255);
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(255, 152, 0);
+  text-align: left;
+  margin-left: 30%;
+  margin-top: 20px;
+}
+
+
+
+
+
+/*投稿詳細*/
+.word-show-image{
+  text-align: center;
+  float: left;
+  margin-left: 35%;
+  margin-right: 40px;
+}
+
+
+.sp-word-show {
+  display: inline-block;
+  position: relative;
+  border-top: 1px solid rgb(121, 85, 72);
+  border-bottom: 1px solid rgb(121, 85, 72);
+  padding: .8em 1.2em;
+  margin-top: 20px;
+}
+.sp-word-show::before,
+.sp-word-show::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 14px);
+  background-color: rgb(121, 85, 72);
+    text-align: center;
+}
+.sp-word-show::before {
+  left: 5px;
+}
+.sp-word-show::after {
+  right: 5px;
+}
+
+.word-show-commentary {
+  display: inline-block;
+  width: 450px;
+  max-width: 100%;
+  border: 2px solid rgb(158, 158, 158);
+  border-radius: 0px;
+  padding: .8em;
+  margin-top: 1.5em;
+  position: relative;
+  text-align: left;
+}
+.word-show-commentary .word-show-commentary-title {
+  padding: .2em .4em;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: absolute;
+  bottom: 100%;
+  left: -2px;
+  background: rgb(158, 158, 158);
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+}
+.word-show-commentary > :last-child {
+  margin-bottom: 0;
+}
+
+.sp-word-show-box{
+  margin:125px 0 50px 33%;
+
+}
+
+.tips{
+  text-align: right;
+  margin-right: 5px;
+}
+
+.word-show-speaker{
+  font-size: 15px;
+}
+
+.word-show-menu{
+  margin:0 0 20px 10px;
+}
+
+.fav-user {
+  display: table;
+  padding: .6em;
+  margin: 0 0 1em;
+  white-space: nowrap;
+  color: rgb(96, 125, 139);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.fav-user::before,
+.fav-user::after {
+  display: table-cell;
+  content: "";
+  background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + .125em), transparent calc(50% + .125em));
+  background-clip: padding-box;
+  width: 50%;
+}
+.fav-user::before {
+  border-right: .4em solid transparent;
+}
+.fav-user::after {
+  border-left: .4em solid transparent;
+}
+
+/*お気に入りリスト*/
+.fav-count {
+  background: transparent;
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  border-left: .2083em solid #2196F3;
+  text-align: left;
+}
+
+/*マイページ*/
+.mypage {
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid rgb(0, 150, 136);
+  border-radius: px;
+  padding: 1.6em .8em .8em;
+  position: relative;
+  text-align: left;
+  margin:10px 5px 0 36%;
+
+}
+.mypage .mypage-title {
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: absolute;
+  top: -.6em;
+  left: .8em;
+  background: #fff;
+}
+.mypage > :last-child {
+  margin-bottom: 0;
+}
+
+.mypage-show{
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+/*投稿編集*/
+.word-edit{
+  text-align: center;
+}
+
+.word-edit2{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.word-edit-head {
+  background: transparent;
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(255, 152, 0);
+  text-align: left;
+  margin-left: 38%;
+}
+
+
+/*ユーザー編集*/
+.user-edit{
+  text-align: center;
+  margin-top: 30px;
+}
+
+/*新規会員登録*/
+.field{
+  margin-top: 10px;
+}
+.short{
+  width: 25%;
+}
+.actions{
+  margin-top: 40px;
+}
+
+
+
+.about {
+  display: inline-block;
+  width: 50%;
+  max-width: 100%;
+  border: 1px solid rgb(103, 58, 183);
+  border-radius: 10px;
+  padding: 0 .8em .8em;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 25%;
+}
+.about .about-title {
+  padding: .4em .8em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 -.8em .4em -.8em;
+  background: rgb(103, 58, 183);
+  color: rgb(255, 255, 255);
+}
+.about > :last-child {
+  margin-bottom: 0;
+}
+
+/*@media screen and (max-width:768px) {
+  .table-responsive {
+    display:none;
+  }
+}
+@media screen and (max-width:400px) {
+  .table-responsive {
+    display:block;
+  }
+}*/
+
+@media screen and (max-width:500px) {
+
+header{
+  width: 100%;
+}
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: silver;
+  margin-top: 50px;
+}
+
+
+/*見出し*/
+
+.top-guide {
+text-align: left;
+
+}
+
+.heading {
+text-align: left;}
+
+
+.top-guide .wrapper {
+  text-align: left;
+ 
+}
+
+.top-guide .wrapper .caption {
+  text-align: left;
+
+}
+
+.top-guide .wrapper .caption:before,
+.top-guide .wrapper .caption:after {
+  text-align: left;
+
+}
+
+.top-guide .wrapper .caption:before {
+  text-align: left;
+
+}
+
+.top-guide .wrapper .caption:after {
+text-align: left;
+}
+
+
+/*ランダム名言*/
+
+
+.picup{
+  width: 50%;
+  background-position: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.pickup_title{
+  font-size: 25px;
+  color: black;
+}
+.pickup_image{
+  margin-left: 30%;
+}
+.pickup-word::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.pickup-word .pickup-word-img {
+  text-align: center;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  margin-left: 30%;
+}
+.pickup-word .pickup-word-img img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  margin: 0;
+  border-radius: 10px;
+}
+.pickup-word .pickup-word-img figcaption {
+  font-size: .875em;
+  margin: .2em 0;
+
+}
+.pickup-word .pickup-word-content {
+  float: left;
+
+  box-sizing: border-box;
+  background: rgb(255, 251, 199);
+  color: #333;
+  padding: .8em;
+  margin-left: 20px;
+  position: relative;
+  border-radius: 8px;
+  text-align: left;
+  display: inline-block;
+}
+.pickup-word .pickup-word-content::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -10px;
+  border: 10px solid transparent;
+  border-right: 10px solid rgb(255, 251, 199);
+  z-index: 2;
+}
+.pickup-word .pickup-word-content > :last-child {
+  margin-bottom: 0;
+}
+
+
+/*見出しメニュー*/
+.menu {
+  background: rgba(123, 68, 29, 0);
+  padding: .4em .8em;
+  margin: 50px 280px;
+  color: #000;
+  font-size: 25px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(30, 245, 244);
+  border-bottom: .084em dotted rgb(34, 218, 240);
+  text-align: left;
+}
+
+
+/*トップページのリンク*/
+
+.top-link {
+  width: 250px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  margin-left: 40%;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(233, 156, 55);
+  color: rgb(246, 235, 235);
+  font-size: 20px;
+  display: inline-block;
+  padding: .6em 2em;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,.2);
+}
+
+.menu-left{
+  float: left;
+}
+
+
+
+/*新規投稿*/
+.menu-head {
+  background: rgb(3, 169, 244);
+  padding: .4em .6em .3em;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0px 0px 0px .2083em rgb(3, 169, 244);
+  border: .0417em dashed rgb(255, 235, 59);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.word-new{
+  margin:0 auto;
+  margin-top: 10px;
+
+}
+.word-new-form-1{
+  width: 32%;
+}
+
+.word-new-form-2{
+  width: 32%;
+  height: 100px;
+}
+
+
+.form{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-head{
+  font-size: 15px;
+  font-weight: bold;
+
+
+}
+
+.submit{
+  margin:30px 0 20px 46%;
+}
+
+/*名言一覧*/
+.index-switching{
+  margin-left: 40%;
+  margin-bottom: 40px;
+}
+
+.sp-word {
+  display: inline-block;
+  position: relative;
+  border-top: 1px solid rgb(121, 85, 72);
+  border-bottom: 1px solid rgb(121, 85, 72);
+  padding: .8em 1.2em;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.sp-word::before,
+.sp-word::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 14px);
+  background-color: rgb(121, 85, 72);
+}
+.sp-word::before {
+  left: 5px;
+}
+.sp-word::after {
+  right: 5px;
+}
+
+
+.word-user {
+  background: rgb(255, 255, 255);
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(255, 152, 0);
+  text-align: left;
+  margin-left: 30%;
+  margin-top: 20px;
+}
+
+
+
+
+
+/*投稿詳細*/
+.word-show-image{
+  text-align: center;
+  float: left;
+  margin-left: 35%;
+  margin-right: 40px;
+}
+
+
+.sp-word-show {
+  display: inline-block;
+  position: relative;
+  border-top: 1px solid rgb(121, 85, 72);
+  border-bottom: 1px solid rgb(121, 85, 72);
+  padding: .8em 1.2em;
+  margin-top: 20px;
+}
+.sp-word-show::before,
+.sp-word-show::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: calc(100% + 14px);
+  background-color: rgb(121, 85, 72);
+    text-align: center;
+}
+.sp-word-show::before {
+  left: 5px;
+}
+.sp-word-show::after {
+  right: 5px;
+}
+
+.word-show-commentary {
+  display: inline-block;
+  width: 450px;
+  max-width: 100%;
+  border: 2px solid rgb(158, 158, 158);
+  border-radius: 0px;
+  padding: .8em;
+  margin-top: 1.5em;
+  position: relative;
+  text-align: left;
+}
+.word-show-commentary .word-show-commentary-title {
+  padding: .2em .4em;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: absolute;
+  bottom: 100%;
+  left: -2px;
+  background: rgb(158, 158, 158);
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+}
+.word-show-commentary > :last-child {
+  margin-bottom: 0;
+}
+
+.sp-word-show-box{
+  margin:125px 0 50px 33%;
+
+}
+
+.tips{
+  text-align: right;
+  margin-right: 5px;
+}
+
+.word-show-speaker{
+  font-size: 15px;
+}
+
+.word-show-menu{
+  margin:0 0 20px 10px;
+}
+
+.fav-user {
+  display: table;
+  padding: .6em;
+  margin: 0 0 1em;
+  white-space: nowrap;
+  color: rgb(96, 125, 139);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.fav-user::before,
+.fav-user::after {
+  display: table-cell;
+  content: "";
+  background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + .125em), transparent calc(50% + .125em));
+  background-clip: padding-box;
+  width: 50%;
+}
+.fav-user::before {
+  border-right: .4em solid transparent;
+}
+.fav-user::after {
+  border-left: .4em solid transparent;
+}
+
+/*お気に入りリスト*/
+.fav-count {
+  background: transparent;
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  border-left: .2083em solid #2196F3;
+  text-align: left;
+}
+
+/*マイページ*/
+.mypage {
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid rgb(0, 150, 136);
+  border-radius: px;
+  padding: 1.6em .8em .8em;
+  position: relative;
+  text-align: left;
+  margin:10px 5px 0 36%;
+
+}
+.mypage .mypage-title {
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: absolute;
+  top: -.6em;
+  left: .8em;
+  background: #fff;
+}
+.mypage > :last-child {
+  margin-bottom: 0;
+}
+
+.mypage-show{
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+/*投稿編集*/
+.word-edit{
+  text-align: center;
+}
+
+.word-edit2{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.word-edit-head {
+  background: transparent;
+  padding: .4em .8em;
+  margin: 0 0 1em;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+  border-left: .2083em solid rgb(255, 152, 0);
+  text-align: left;
+  margin-left: 38%;
+}
+
+
+/*ユーザー編集*/
+.user-edit{
+  text-align: center;
+  margin-top: 30px;
+}
+
+/*新規会員登録*/
+.field{
+  margin-top: 10px;
+}
+.short{
+  width: 25%;
+}
+.actions{
+  margin-top: 40px;
+}
+
+
+
+.about {
+  display: inline-block;
+  width: 50%;
+  max-width: 100%;
+  border: 1px solid rgb(103, 58, 183);
+  border-radius: 10px;
+  padding: 0 .8em .8em;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 25%;
+}
+.about .about-title {
+  padding: .4em .8em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 -.8em .4em -.8em;
+  background: rgb(103, 58, 183);
+  color: rgb(255, 255, 255);
+}
+.about > :last-child {
+  margin-bottom: 0;
+}
+
+
+
+}
+
+
+
