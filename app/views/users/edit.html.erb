@@ -8,11 +8,11 @@
         <%= form_for(@user) do |f| %>
 
         <h4>名前</h4>
-        <%= f.text_field :name %>
+        <%= f.text_field :name , class: "login-form"%>
         <h4>出身</h4>
-        <%= f.text_field :prefecture %>
+        <%= f.text_field :prefecture, class: "login-form"%>
         <h4>E-mail</h4>
-        <%= f.text_field :email %>
+        <%= f.text_field :email , class: "login-form"%>
 
         <p style ="margin-top: 20px;">
           <%= f.submit '更新', class: "btn btn-primary active" %>

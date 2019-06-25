@@ -13,12 +13,14 @@
 				<p class="mypage-show">E-mail：<%= @user.email %></p>
 				<% end %>
 			</div>
-			<div style="margin : 30px 0 30px 35%;">
-				<% if @user == current_user %>
-				<% elsif current_user.user_flag == 1 %>
+			<div class="fav-box">
+				<% if user_signed_in? %>
+				<% if current_user.user_flag == 1 || @user == current_user%>
+
 				<span class="word-show-menu"><%= link_to "お気に入りリスト", "/favorites", class: "btn btn-primary active" %></span>
 				<span class="word-show-menu"><%= link_to "登録情報を編集", edit_user_path, class: "btn btn-warning active" %></span>
 
+				<% end %>
 				<% end %>
 			</div>
 
@@ -28,7 +30,7 @@
 
 
 
-			<div class="table">
+			<div class="table-responsive">
 				<table class="table">
 					<thead>
 						<tr>

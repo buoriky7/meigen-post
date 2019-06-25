@@ -26,7 +26,7 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
-    @favorite = @word.favorites.page(params[:page]).per(1).reverse_order
+    @favorite = @word.favorites.page(params[:page]).per(100).reverse_order
     @favorites = @word.favorites.all
   end
 

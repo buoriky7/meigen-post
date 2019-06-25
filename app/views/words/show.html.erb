@@ -31,6 +31,13 @@
 						（<%= @word.word_flag %>）】
 					</p>
 				</div>
+
+			</div>
+
+
+
+
+
 				<div style="margin-top: 40px;">
 						<% if user_signed_in? %>
 						<% if current_user.user_flag == 1 %>
@@ -60,11 +67,11 @@
 				<span class="word-show-menu">
 					<% if @word.favorited_by?(current_user) %>
 					<%= link_to word_favorites_path(@word.id), class: "btn btn-danger active", method: :delete do %>
-					ー お気に入りリスト 外す
+					ー  お気に入り中
 					<% end %>
 					<% else %>
 					<%= link_to word_favorites_path(@word.id), class: "btn btn-default active", method: :post do %>
-					＋ お気に入りリスト 追加
+					＋ お気に入り 追加
 					<% end %>
 					<% end %>
 					<span class="word-show-menu">
