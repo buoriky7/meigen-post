@@ -15,7 +15,6 @@
 
 【追加gem】
 　　gem 'devise'
-  
 　　gem 'bootstrap-sass'
    gem 'jquery-rails'
    gem 'kaminari'
