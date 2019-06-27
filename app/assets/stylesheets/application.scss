@@ -33,62 +33,19 @@ footer{
 
 /*見出し*/
 
-.top-guide {
-  width: 700px;
-  margin: 0 auto;
-  padding: 10px 0;
-  font-family: serif;
-  font-size: 35px;
-  color: #5F67AE;
-  font-weight: 600;
-
-}
-
-.heading {
-  margin: 10px 0
-}
-
-
-.top-guide .wrapper {
-  padding: 5px;
+.logo{
   text-align: center;
-  border: 3px solid;
-  border-top: none;
-  width: 700px;
+}
+.logo_image{
+  width: 400px;
+  height: 100px;
+
 }
 
-.top-guide .wrapper .caption {
-  -ms-transform: translate(0, -50%);
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  overflow: hidden;
-  margin: -5px -8px 0 -8px;
-  position: absolute;
-  width: 700px;
-  font-size: 16px;
+.logo_post_count{
+  font-size: 15px;
+  font-weight: bold;
 }
-
-.top-guide .wrapper .caption:before,
-.top-guide .wrapper .caption:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  margin-top: -2px;
-  border-top: 3px solid;
-  top: 50%;
-}
-
-.top-guide .wrapper .caption:before {
-  -ms-transform: translate(-100%, 0);
-  -webkit-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-  margin-left: -30px;
-}
-
-.top-guide .wrapper .caption:after {
-  margin-left: 30px;
-}
-
 
 /*ランダム名言*/
 
@@ -133,7 +90,7 @@ footer{
 }
 .pickup-word .pickup-word-content {
   float: left;
-
+  max-width: 30%;
   box-sizing: border-box;
   background: rgb(255, 251, 199);
   color: #333;
@@ -226,6 +183,9 @@ footer{
   height: 100px;
 }
 
+.image_form{
+  margin-left: 40%;
+}
 
 .form{
   text-align: center;
@@ -251,6 +211,7 @@ footer{
 
 .sp-word {
   display: inline-block;
+  max-width: 38%;
   position: relative;
   border-top: 1px solid rgb(121, 85, 72);
   border-bottom: 1px solid rgb(121, 85, 72);
@@ -369,7 +330,9 @@ footer{
 .word-show-menu{
   margin:0 0 20px 10px;
 }
-
+.fav-box{
+  margin: 30px 0 30px 35%;
+}
 .fav-user {
   display: table;
   padding: .6em;
@@ -413,7 +376,7 @@ footer{
   width: 300px;
   max-width: 100%;
   border: 1px solid rgb(0, 150, 136);
-  border-radius: px;
+  border-radius: 10px;
   padding: 1.6em .8em .8em;
   position: relative;
   text-align: left;
@@ -514,7 +477,7 @@ footer{
   }
 }*/
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:768px) {
 
 header{
   width: 100%;
@@ -526,44 +489,19 @@ footer{
   margin-top: 50px;
 }
 
-
-/*見出し*/
-
-.top-guide {
-text-align: left;
+.logo{
+  text-align: center;
+}
+.logo_image{
+  width: 60%;
+  height: 100px;
 
 }
 
-.heading {
-text-align: left;}
-
-
-.top-guide .wrapper {
-  text-align: left;
- 
+.logo_post_count{
+  font-size: 15px;
+  font-weight: bold;
 }
-
-.top-guide .wrapper .caption {
-  text-align: left;
-
-}
-
-.top-guide .wrapper .caption:before,
-.top-guide .wrapper .caption:after {
-  text-align: left;
-
-}
-
-.top-guide .wrapper .caption:before {
-  text-align: left;
-
-}
-
-.top-guide .wrapper .caption:after {
-text-align: left;
-}
-
-
 /*ランダム名言*/
 
 
@@ -589,15 +527,16 @@ text-align: left;
 .pickup-word .pickup-word-img {
   text-align: center;
   float: left;
-  width: 200px;
+  width: 150px;
   box-sizing: border-box;
   margin-left: 30%;
 }
 .pickup-word .pickup-word-img img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   vertical-align: bottom;
   margin: 0;
+  margin-top: 10px;
   border-radius: 10px;
 }
 .pickup-word .pickup-word-img figcaption {
@@ -607,13 +546,14 @@ text-align: left;
 }
 .pickup-word .pickup-word-content {
   float: left;
-
+  max-width: 90%;
+  width: 90%;
   box-sizing: border-box;
   background: rgb(255, 251, 199);
   color: #333;
   padding: .8em;
   margin-left: 20px;
-  position: relative;
+  position: static;
   border-radius: 8px;
   text-align: left;
   display: inline-block;
@@ -637,9 +577,9 @@ text-align: left;
 .menu {
   background: rgba(123, 68, 29, 0);
   padding: .4em .8em;
-  margin: 50px 280px;
+  margin: 0px 0px;
   color: #000;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   border-left: .2083em solid rgb(30, 245, 244);
   border-bottom: .084em dotted rgb(34, 218, 240);
@@ -650,17 +590,17 @@ text-align: left;
 /*トップページのリンク*/
 
 .top-link {
-  width: 250px;
-  margin-top: 5px;
+  width: 70%;
+  margin-top: 10px;
   margin-bottom: 25px;
-  margin-left: 40%;
+  margin-left: 13%;
   text-align: center;
   border-radius: 10px;
   background-color: rgb(233, 156, 55);
   color: rgb(246, 235, 235);
-  font-size: 20px;
+  font-size: 15px;
   display: inline-block;
-  padding: .6em 2em;
+
   cursor: pointer;
   box-shadow: 1px 1px 3px 0 rgba(0,0,0,.2);
 }
@@ -675,14 +615,14 @@ text-align: left;
 .menu-head {
   background: rgb(3, 169, 244);
   padding: .4em .6em .3em;
-  width: 40%;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
   box-shadow: 0px 0px 0px .2083em rgb(3, 169, 244);
   border: .0417em dashed rgb(255, 235, 59);
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  font-size: 24px;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -692,12 +632,22 @@ text-align: left;
 
 }
 .word-new-form-1{
-  width: 32%;
+  width: 50%;
+  border:solid 1px;
 }
 
 .word-new-form-2{
-  width: 32%;
+  width: 50%;
   height: 100px;
+  border:solid 1px;
+}
+.image_form{
+  margin-left: 18%;
+}
+
+label{
+  font-size: 12px;
+
 }
 
 
@@ -707,11 +657,10 @@ text-align: left;
 }
 
 .form-head{
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
-
-
 }
+
 
 .submit{
   margin:30px 0 20px 46%;
@@ -719,12 +668,14 @@ text-align: left;
 
 /*名言一覧*/
 .index-switching{
-  margin-left: 40%;
+  margin-left: 10%;
   margin-bottom: 40px;
 }
 
 .sp-word {
   display: inline-block;
+  max-width: 90%;
+  width: 90%;
   position: relative;
   border-top: 1px solid rgb(121, 85, 72);
   border-bottom: 1px solid rgb(121, 85, 72);
@@ -758,7 +709,7 @@ text-align: left;
   font-weight: bold;
   border-left: .2083em solid rgb(255, 152, 0);
   text-align: left;
-  margin-left: 30%;
+  margin-left: 10px;
   margin-top: 20px;
 }
 
@@ -770,8 +721,8 @@ text-align: left;
 .word-show-image{
   text-align: center;
   float: left;
-  margin-left: 35%;
-  margin-right: 40px;
+  margin-left: 30%;
+  margin-right: 100%;
 }
 
 
@@ -781,7 +732,8 @@ text-align: left;
   border-top: 1px solid rgb(121, 85, 72);
   border-bottom: 1px solid rgb(121, 85, 72);
   padding: .8em 1.2em;
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 100%;
 }
 .sp-word-show::before,
 .sp-word-show::after {
@@ -827,10 +779,15 @@ text-align: left;
 }
 
 .sp-word-show-box{
-  margin:125px 0 50px 33%;
+  width: 90%;
+  margin:50px 0 10px 10px;
+  display: inline-block;
 
 }
-
+.fav-box{
+  margin:0 0 0 0 ;
+  text-align: center;
+}
 .tips{
   text-align: right;
   margin-right: 5px;
@@ -841,7 +798,7 @@ text-align: left;
 }
 
 .word-show-menu{
-  margin:0 0 20px 10px;
+  text-align: center;
 }
 
 .fav-user {
@@ -850,7 +807,7 @@ text-align: left;
   margin: 0 0 1em;
   white-space: nowrap;
   color: rgb(96, 125, 139);
-  font-size: 24px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
 }
@@ -873,6 +830,7 @@ text-align: left;
 .fav-count {
   background: transparent;
   padding: .4em .8em;
+  margin-top: 30px;
   margin: 0 0 1em;
   color: #000;
   font-size: 18px;
@@ -881,17 +839,28 @@ text-align: left;
   text-align: left;
 }
 
+th{
+  font-size: 10px;
+}
+
+tr{
+  font-size: 8px;
+  width: 1px;
+}
+
+
 /*マイページ*/
 .mypage {
   display: inline-block;
-  width: 300px;
+  width: 80%;
   max-width: 100%;
   border: 1px solid rgb(0, 150, 136);
-  border-radius: px;
+  border-radius: 10px;
   padding: 1.6em .8em .8em;
   position: relative;
   text-align: left;
-  margin:10px 5px 0 36%;
+  margin:10px 0 15px 5%;
+  font-size: 15px;
 
 }
 .mypage .mypage-title {
@@ -908,13 +877,14 @@ text-align: left;
 }
 
 .mypage-show{
-  font-size: 18px;
+  font-size: 13px;
   margin-left: 30px;
 }
 
 /*投稿編集*/
 .word-edit{
-  text-align: center;
+  text-align: left;
+  margin-left: 15px;
 }
 
 .word-edit2{
@@ -931,7 +901,7 @@ text-align: left;
   font-weight: bold;
   border-left: .2083em solid rgb(255, 152, 0);
   text-align: left;
-  margin-left: 38%;
+  margin-left: 10px;
 }
 
 
@@ -956,14 +926,14 @@ text-align: left;
 
 .about {
   display: inline-block;
-  width: 50%;
+  width:90%;
   max-width: 100%;
   border: 1px solid rgb(103, 58, 183);
   border-radius: 10px;
   padding: 0 .8em .8em;
   overflow: hidden;
   text-align: left;
-  margin-left: 25%;
+  margin-left: 5%;
 }
 .about .about-title {
   padding: .4em .8em;
@@ -977,6 +947,9 @@ text-align: left;
   margin-bottom: 0;
 }
 
+.login-form{
+  border:solid 1px;
+}
 
 
 }

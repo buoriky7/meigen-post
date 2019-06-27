@@ -10,12 +10,12 @@
 
         <div class="field">
           <%= f.label :なまえ %><br />
-          <%= f.text_field :name, required: true, input_html: { autocomplete: "name" }, placeholder:"例：イチロー", class: "short" %>
+          <%= f.text_field :name, required: true, input_html: { autocomplete: "name" }, placeholder:"例：イチロー", class: "login-form" %>
         </div>
 
         <div class="field">
           <%= f.label :出身 %><br />
-          <%= f.text_field :prefecture, required: true, input_html: { autocomplete: "prefecture" }, placeholder:"例：東京都", class: "short" %>
+          <%= f.text_field :prefecture, required: true, input_html: { autocomplete: "prefecture" }, placeholder:"例：東京都", class: "login-form" %>
         </div>
 
 
@@ -28,7 +28,7 @@
 
         <div class="field">
           <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "short"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "login-form"%>
         </div>
 
         <div class="field">
@@ -36,12 +36,12 @@
           <% if @minimum_password_length %>
           <em>( <%= @minimum_password_length %> 文字以上 )</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" ,class: "short"%>
+          <%= f.password_field :password, autocomplete: "new-password" , class: "login-form"%>
         </div>
 
         <div class="field">
           <%= f.label :パスワード再入力 %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "short" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "login-form" %>
         </div>
 
         <div class="actions">
