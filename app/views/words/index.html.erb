@@ -11,13 +11,15 @@
 						<label><%= f.radio_button :word_flag_cont, "" %> 全て</label>
 						<label><%= f.radio_button :word_flag_cont, "著名人" %> 著名人 </label>
 						<label><%= f.radio_button :word_flag_cont, "一般人" %> 一般人 </label>
-						<button type="submit" class="btn btn-default">絞り込み</button>
+						<button type="submit" class="btn btn-primary active">絞り込み</button>			<div class="search_count">
+						<b><p style="color: hotpink"><%= @search_words.count %>件 表示</p></b>
+			</div>
 					<% end %>
 				</form>
-			</div>
 
 			<div>
 				<% @search_words.each do |word| %>
+
 
 					<div class="word-user"><%= word.user.prefecture %>出身
 						<%= link_to word.user.name, user_path(word.user.id) %> さんの投稿

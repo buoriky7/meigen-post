@@ -27,14 +27,14 @@
 						<tbody>
 							<tr>
 								<td><%= i+1 %></td>
-								<th><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "/images/noimage.jpeg", :size =>'50x50' %></th>
+								<td><%= attachment_image_tag favorite.word, :image, :fill, 50, 50, fallback: "/images/noimage.jpeg", :size =>'50x50' %></td>
 								<td><%= simple_format(favorite.word.sp_word) %></td>
 								<td><%= favorite.word.speaker %></td>
 								<td><%= favorite.word.genre %></td>
 								<td><%= favorite.word.user.name %></td>
 								<td><%= favorite.word.created_at.strftime('%Y/%m/%d') %></td>
 								<td><%= link_to "解説", word_path(favorite.word.id) ,class: "btn btn-default active" %></td>
-								<td><%= link_to "削除", word_favorites_path(favorite.word), class: "btn btn-danger active", method: :delete %></td>
+								<td><%= link_to "外す", word_favorites_path(favorite.word), class: "btn btn-danger active", method: :delete %></td>
 							</tr>
 						</tbody>
 					<% end %>
