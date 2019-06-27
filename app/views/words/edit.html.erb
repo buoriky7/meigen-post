@@ -9,6 +9,7 @@
 			</div>
 
 			<div class="word-edit">
+
 				<p><%= attachment_image_tag(@word, :image, :fill, 80, 80, fallback: '/images/noimage.jpeg', :size =>'80x80') %></p>
 				<p>名言：<%= simple_format(@word.sp_word) %></p>
 				<p>発言者：<%= @word.speaker %></p>
