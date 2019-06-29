@@ -38,14 +38,6 @@
 
 
 
-				<div style="margin-top: 40px;">
-						<% if user_signed_in? %>
-						<% if current_user.user_flag == 1 %>
-						<%= link_to "投稿削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を削除" %>
-						<% end %>
-						<% end %>
-				</div>
-			</div>
 
 
 
@@ -53,6 +45,11 @@
 
 			<!-- 他ユーザーいいね/自分は編集削除へのリンク -->
 			<div style="margin : 5px 0 30px 32%;">
+				<% if user_signed_in? %>
+				<% if current_user.user_flag == 1 %>
+				<%= link_to "投稿削除", word_path(@word.id), class: "btn btn-danger active", method: :delete, "data-confirm" => "投稿を削除" %>
+				<% end %>
+				<% end %>
 				<% if user_signed_in? %>
 				<% if @word.user == current_user %>
 				<span class="word-show-menu">
