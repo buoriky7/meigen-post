@@ -21,3 +21,8 @@
 		gem "refile"<br>
 		gem "refile-mini_magick"<br>
 		gem 'ransack'<br></p>
+
+<h3>導入について</h3>
+	<p>git clone 後、以下２点を実施してくださいい<br>
+	   rails db:migrate<br>
+	   rails db:seed</p>
