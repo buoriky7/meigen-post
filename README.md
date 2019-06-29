@@ -13,7 +13,7 @@
  
 <p>　ruby ver：2.3.7</p>
 
-<h3>【追加gem】</h3>
+<h2>【追加gem】</h2>
 	<p>gem 'devise'<br>
 		gem 'bootstrap-sass'<br>
 		gem 'jquery-rails'<br>
@@ -22,7 +22,11 @@
 		gem "refile-mini_magick"<br>
 		gem 'ransack'<br></p>
 
-<h3>導入について</h3>
+<h2>導入について</h2>
 	<p>git clone 後、以下２点を実施してください<br>
 	   rails db:migrate<br>
 	   rails db:seed</p>
+<h2>【その他】</h2>
+<p>　RailsのCRUDの基本を意識して作成しております。</p>
+ 
+<p>　ruby ver：2.3.7</p>
