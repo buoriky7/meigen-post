@@ -20,8 +20,9 @@
 
 <h2>導入について</h2>
 	<p>git clone 後、以下２点を実施してください<br>
+	   bundle install<br>
 	   rails db:migrate<br>
-	   rails db:seed</p>
+	   rails db:seed </p>
 <h2>【その他】</h2>
 <p>　RailsのCRUDの基本を意識して作成しております。</p>
  
