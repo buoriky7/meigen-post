@@ -19,7 +19,7 @@
 		gem 'ransack'<br></p>
 
 <h2>導入について</h2>
-	<p>git clone 後、以下２点を実施してください<br>
+	<p>git clone 後、以下3点を実施してください<br>
 	   bundle install<br>
 	   rails db:migrate<br>
 	   rails db:seed </p>
